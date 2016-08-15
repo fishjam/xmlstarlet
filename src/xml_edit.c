@@ -324,6 +324,84 @@ removeNodeFromPrev(xmlNodePtr node)
 }
 
 /**
+ *  dump node information
+ */
+static void 
+dumpNodePtr(xmlNodePtr node, const char* info)
+{
+    /*
+    char buf[80];
+    xmlBufferPtr buffer;
+
+    memset(buf, 0, sizeof(buf));
+    sprintf(buf, "dumpNode:%s (%d)", info, node->type);
+    buffer = xmlBufferCreate(); 
+    xmlBufferAdd(buffer, BAD_CAST buf, strlen(buf));
+    xmlNodeDump(buffer, NULL, node, 0, 0);
+    xmlBufferAdd(buffer, BAD_CAST "\n", 1);
+    xmlBufferDump(stdout, buffer);
+    xmlBufferFree(buffer);
+    */
+}
+
+/**
+ *  create element with node, sample:
+ *    ./xmlstarlet ed -s /configuration -t elem -n "" -v "<property><name>hadoop.tmp.dir</name><value>/usr/hadoop/tmp</value></property>\
+ *      <property><name>fs.defaultFS</name><value>hdfs://localhost:9000</value></property>" \
+ *      mytest.xml
+ */
+static xmlNodePtr
+xmlNewRecursiveDocNode	(xmlDocPtr doc,
+                     xmlNsPtr ns,
+                     const xmlChar *name,
+                     const xmlChar *content)
+{
+    xmlNodePtr newNode, tmpRootNode;
+    xmlDocPtr newDocPtr;
+    int nameLength, contentLength;
+    char* newContent;
+
+    if (NULL == name || NULL == content)
+    {
+        return NULL;
+    }
+
+    newNode = NULL;
+
+    /* printf("name=%s, content=%s\n\n", name, content); */
+
+    nameLength = xmlStrlen(name);
+    if(0 == nameLength){
+        nameLength = 4;
+        name = BAD_CAST "root";
+    }
+    contentLength = xmlStrlen(content);
+    newContent = malloc(nameLength * 2 + contentLength + 20);
+    sprintf(newContent, "<%s>%s</%s>",name, content, name);
+
+    /* printf("content is: %s\n\n", newContent); */
+
+    newDocPtr = xmlReadMemory((const char*)newContent, strlen((const char*)newContent), NULL, NULL, 0);
+    if (NULL != newDocPtr)
+    {
+        tmpRootNode = xmlDocGetRootElement(newDocPtr);
+        if (NULL != tmpRootNode)
+        {
+            newNode = xmlDocCopyNode(tmpRootNode, doc, 1);	
+        }
+        xmlFreeDoc(newDocPtr);
+    }
+    
+    if (NULL == newNode)
+    {
+        newNode = xmlNewDocNode(doc, ns, name, content);
+    }
+    free(newContent);
+    dumpNodePtr(newNode, "xmlNewRecursiveDocNode return");
+    return newNode;
+}
+
+/**
  *  'insert' operation
  */
 static void
@@ -331,12 +409,12 @@ edInsert(xmlDocPtr doc, xmlNodeSetPtr nodes, const char *val, const char *name,
          XmlNodeType type, int mode)
 {
     int i;
-
+    /* printf("edInsert, name=%s, val=%s\n", name, val);*/
     xmlXPathEmptyNodeSet(previous_insertion);
 
     for (i = 0; i < nodes->nodeNr; i++)
     {
-        xmlNodePtr node;
+        xmlNodePtr node = NULL;
 
         if (nodes->nodeTab[i] == (void*) doc && mode != 0) {
             fprintf(stderr, "The document node cannot have siblings.\n");
@@ -350,13 +428,37 @@ edInsert(xmlDocPtr doc, xmlNodeSetPtr nodes, const char *val, const char *name,
         }
         else if (type == XML_ELEM)
         {
-            node = xmlNewDocNode(doc, NULL /* TODO: NS */, BAD_CAST name, BAD_CAST val);
-            if (mode > 0)
-                xmlAddNextSibling(nodes->nodeTab[i], node);
-            else if (mode < 0)
-                xmlAddPrevSibling(nodes->nodeTab[i], node);
-            else
-                xmlAddChild(nodes->nodeTab[i], node);
+            node = xmlNewRecursiveDocNode(doc, NULL /* TODO: NS */, BAD_CAST name, BAD_CAST val);
+            if(NULL != node)
+            {
+                if (0 == xmlStrlen(BAD_CAST name)){
+                    node = xmlFirstElementChild(node);
+                    dumpNodePtr(node, "after get FirstElement");
+                }
+
+                while (node)
+                {
+                    xmlNodePtr tmpNode;
+
+                    /* 
+                    char sbuf[40];
+                    sprintf(sbuf, "handle node, %d,", mode);
+                    dumpNodePtr(node, sbuf);
+                    */
+                    
+                    tmpNode = xmlNextElementSibling(node);
+                    if (mode > 0){
+                        xmlAddNextSibling(nodes->nodeTab[i], node);
+                    }
+                    else if (mode < 0){
+                        xmlAddPrevSibling(nodes->nodeTab[i], node);
+                    }
+                    else{
+                        xmlAddChild(nodes->nodeTab[i], node);
+                    }
+                    node = tmpNode;
+                }
+            }
         }
         else if (type == XML_TEXT)
         {
