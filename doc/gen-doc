@@ -1,0 +1,186 @@
+#! /bin/sh
+
+: "${SED=sed}"
+XMLSTARLET=$1
+STAR_NAME=`echo xml | ${SED} "$transform"`
+
+{
+echo ""
+echo ""
+echo "                                           XMLSTARLET USER'S GUIDE"
+echo ""
+echo "                                  see also http://xmlstar.sourceforge.net/"
+echo ""
+echo ""
+
+echo ""
+echo ""
+echo "1. BASIC COMMAND LINE OPTIONS"
+echo "===================================================="
+echo ""
+echo "$STAR_NAME --help"
+$SED '/^#/d' src/usage.txt
+
+echo ""
+echo ""
+echo ""
+echo "2. Select/Query XML documents"
+echo "===================================================="
+echo ""
+echo "$STAR_NAME sel --help"
+$SED '/^#/d' src/select-usage.txt
+
+echo ""
+echo ""
+echo ""
+echo "3. Editing XML documents"
+echo "===================================================="
+echo ""
+echo "$STAR_NAME ed --help"
+$SED '/^#/d' src/edit-usage.txt
+
+echo ""
+echo ""
+echo ""
+echo "4. Using XSLT to transform XML documents"
+echo "===================================================="
+echo ""
+echo "$STAR_NAME tr --help"
+$SED '/^#/d' src/trans-usage.txt
+
+echo ""
+echo ""
+echo ""
+echo "5. Formatting XML documents"
+echo "===================================================="
+echo ""
+echo "$STAR_NAME fo --help"
+$SED '/^#/d' src/format-usage.txt
+
+echo ""
+echo ""
+echo ""
+echo "6. Validating XML documents"
+echo "===================================================="
+echo ""
+echo "$STAR_NAME val --help"
+$SED '/^#/d' src/validate-usage.txt
+
+echo ""
+echo ""
+echo ""
+echo "7. Displaying structure of XML documents"
+echo "===================================================="
+echo ""
+echo "$STAR_NAME el --help"
+$SED '/^#/d' src/elem-usage.txt
+
+echo ""
+echo ""
+echo ""
+echo ""
+echo "8. Escape/Unescape special XML characters"
+echo "===================================================="
+echo ""
+echo "$STAR_NAME esc --help"
+$SED '/^#/d' src/escape-usage.txt
+
+echo ""
+echo ""
+echo ""
+echo ""
+echo "9. List directory as XML"
+echo "===================================================="
+echo ""
+echo "$STAR_NAME ls --help"
+$SED '/^#/d' src/ls-usage.txt
+
+echo ""
+echo ""
+echo ""
+echo ""
+echo "10. XML canonicalization"
+echo "===================================================="
+echo ""
+echo "$STAR_NAME c14n --help"
+$SED '/^#/d' src/c14n-usage.txt
+
+echo ""
+echo ""
+echo ""
+echo ""
+echo "11. Convert XML into PYX format (based on ESIS - ISO 8879)"
+echo "===================================================="
+echo ""
+echo "$STAR_NAME pyx --help"
+$SED '/^#/d' src/pyx-usage.txt
+
+echo ""
+echo ""
+echo ""
+echo ""
+echo "12. Examples:"
+echo "===================================================="
+echo ""
+echo "Input1"
+echo "examples/xml/table.xml"
+echo ""
+cat "$srcdir"/examples/xml/table.xml
+echo ""
+echo ""
+echo "Input2"
+echo "examples/xml/tab-obj.xml"
+echo ""
+cat "$srcdir"/examples/xml/tab-obj.xml
+echo ""
+echo ""
+echo "Input3"
+echo "examples/html/hello1.html"
+echo ""
+cat "$srcdir"/examples/html/hello1.html
+echo ""
+echo ""
+echo "Input4"
+echo "examples/sgml/docbook1.sgml"
+echo ""
+cat "$srcdir"/examples/sgml/docbook1.sgml
+echo ""
+echo ""
+echo "Stylesheet1"
+echo "examples/xsl/sum1.xsl"
+echo ""
+cat "$srcdir"/examples/xsl/sum1.xsl
+echo ""
+echo ""
+echo "Stylesheet2"
+echo "examples/xsl/hello1.xsl"
+echo ""
+cat "$srcdir"/examples/xsl/hello1.xsl
+echo ""
+echo ""
+echo "Stylesheet3"
+echo "examples/xsl/param1.xsl"
+echo ""
+cat "$srcdir"/examples/xsl/param1.xsl
+echo ""
+echo ""
+
+echo ""
+
+for eg in "$srcdir"/examples/*[0-9]
+do
+	if [ -x "$eg" ]
+	then
+		echo "Command:"
+		sed -e '/^#!/d' "$eg"
+		echo "Result Output:"
+		cat "$srcdir"/examples/results/`basename $eg`.out
+		echo ""
+		echo ""
+	fi
+done
+
+echo ""
+} | $SED -e "s:\./xmlstarlet:$STAR_NAME:g; s:PROG:$STAR_NAME:g"
+
+

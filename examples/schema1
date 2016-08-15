@@ -1,0 +1,3 @@
+#!/bin/sh
+# Validate against XSD schema
+./xmlstarlet val -b -s xsd/table.xsd xml/table.xml xml/tab-obj.xml 2>/dev/null; echo $?

@@ -1,0 +1,6 @@
+#!/bin/sh
+./xmlstarlet ed \
+    -s /xml/table/rec -t elem -n new-field -v new-value \
+    -d '$prev' \
+    -i '$prev' -t attr -n new-attr -v new-attr-value \
+    xml/table.xml

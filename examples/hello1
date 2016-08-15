@@ -1,0 +1,3 @@
+#!/bin/sh
+# Apply XSLT stylesheet to HTML input file
+./xmlstarlet tr --html xsl/hello1.xsl html/hello1.html

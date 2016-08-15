@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<!DOCTYPE test [
+<!ELEMENT test (foo)>
+<!ELEMENT foo (#PCDATA)>
+<!ENTITY entity SYSTEM "entity.xml">
+]>
+<!-- Test of external parsed entity. -->
+<test>&entity;</test>

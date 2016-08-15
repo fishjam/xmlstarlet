@@ -1,0 +1,4 @@
+#!/bin/sh
+. ./bigxml
+xmldoc '<b></c>' | ./xmlstarlet val --well-formed --err - \
+    2>&1 >/dev/null | ${SED:-sed} -n "$SEDLINUM_PROG"

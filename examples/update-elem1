@@ -1,0 +1,3 @@
+#!/bin/sh
+# Update value of an element
+./xmlstarlet ed -u '/xml/table/rec[@id=1]/numField' -v 0 xml/tab-obj.xml

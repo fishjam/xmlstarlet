@@ -1,0 +1,2 @@
+<!ELEMENT root (a*)>
+<!ELEMENT a EMPTY>

@@ -1,0 +1,29 @@
+XMLStarlet Toolkit: Edit XML document(s)
+Usage: PROG ed <global-options> {<action>} [ <xml-file-or-uri> ... ]
+where
+  <global-options>  - global options for editing
+  <xml-file-or-uri> - input XML document file name/uri (stdin otherwise)
+
+<global-options> are:
+  -P, or -S           - preserve whitespace nodes.
+     (or --pf, --ps)    Note that space between attributes is not preserved
+  -O (or --omit-decl) - omit XML declaration (<?xml ...?>)
+  -L (or --inplace)   - edit file inplace
+  -N <name>=<value>   - predefine namespaces (name without 'xmlns:')
+                        ex: xsql=urn:oracle-xsql
+                        Multiple -N options are allowed.
+                        -N options must be last global options.
+  --net               - allow network access
+  --help or -h        - display help
+
+where <action>
+  -d or --delete <xpath>
+  --var <name> <xpath>
+  -i or --insert <xpath> -t (--type) elem|text|attr -n <name> [-v (--value) <value>]
+  -a or --append <xpath> -t (--type) elem|text|attr -n <name> [-v (--value) <value>]
+  -s or --subnode <xpath> -t (--type) elem|text|attr -n <name> [-v (--value) <value>]
+  -m or --move <xpath1> <xpath2>
+  -r or --rename <xpath1> -v <new-name>
+  -u or --update <xpath> -v (--value) <value>
+                         -x (--expr) <xpath>
+

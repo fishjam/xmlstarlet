@@ -1,0 +1,4 @@
+#!/bin/sh
+./xmlstarlet ed -i '/xml/table/rec[@id=1]' -t attr -n first -v yes xml/table.xml
+# insert empty element
+./xmlstarlet ed -i '/foo' -t elem -n first xml/entity.xml

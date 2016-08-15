@@ -1,0 +1,14 @@
+xml
+xml/table
+xml/table/rec[@id='1']
+xml/table/rec/numField
+xml/table/rec/stringField
+xml/table/rec/object[@name='Obj1']
+xml/table/rec/object/property[@name='size']
+xml/table/rec/object/property[@name='type']
+xml/table/rec[@id='2']
+xml/table/rec/numField
+xml/table/rec/stringField
+xml/table/rec[@id='3']
+xml/table/rec/numField
+xml/table/rec/stringField

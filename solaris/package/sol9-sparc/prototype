@@ -1,0 +1,7 @@
+i pkginfo
+d none bin ? ? ?
+d none man ? ? ?
+d none man/man1 ? ? ?
+f none bin/xml=../../../src/xml 0755 root bin
+f none man/man1/xmlstarlet.1=../../../doc/xmlstarlet.1 0644 root bin
+

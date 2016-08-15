@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<xml>
+  <table>
+    <record id="1">
+      <numField>123</numField>
+      <stringField>String Value</stringField>
+      <object name="Obj1">
+        <property name="size">10</property>
+        <property name="type">Data</property>
+      </object>
+    </record>
+    <record id="2">
+      <numField>346</numField>
+      <stringField>Text Value</stringField>
+    </record>
+    <record id="3">
+      <numField>-23</numField>
+      <stringField>stringValue</stringField>
+    </record>
+  </table>
+</xml>

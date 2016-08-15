@@ -1,0 +1,7 @@
+XMLStarlet Toolkit: Escape special XML characters
+Usage: PROG esc [<options>] [<string>]
+where <options> are
+  --help      - print usage
+  (TODO: more to be added in future)
+if <string> is missing stdin is used instead.
+

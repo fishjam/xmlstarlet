@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if [ -n "$EXEEXT" ] && [ "$OSTYPE" = MSYS ] ; then
+    EXEEXT=.exe
+fi
+
+for command in ed sel tr val fo el c14n ls esc unesc pyx p2x ; do
+    ./xmlstarlet $command --help | ${SED:-sed} -n \
+        "s@^\\(Usage: \\).*xml$EXEEXT\\( $command\\).*@\\1xml\\2@p"
+done

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<xml>
+  <table>
+    <rec id="1">
+      <numField>123</numField>
+      <stringField>String Value</stringField>
+      <new-field new-attr="new-attr-value">new-value</new-field>
+    </rec>
+    <rec id="2">
+      <numField>346</numField>
+      <stringField>Text Value</stringField>
+      <new-field new-attr="new-attr-value">new-value</new-field>
+    </rec>
+    <rec id="3">
+      <numField>-23</numField>
+      <stringField>stringValue</stringField>
+      <new-field new-attr="new-attr-value">new-value</new-field>
+    </rec>
+  </table>
+</xml>

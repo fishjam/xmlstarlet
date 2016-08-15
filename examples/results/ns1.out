@@ -1,0 +1,6 @@
+
+  SELECT substr(title,1,26) short_title, title, location, skills
+  FROM job
+  WHERE UPPER(title) LIKE '%ORACLE%'
+  ORDER BY first_posted DESC
+

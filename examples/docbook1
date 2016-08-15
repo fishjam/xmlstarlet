@@ -1,0 +1,4 @@
+#!/bin/sh
+# Generate HTML from given SGML docbook document
+./xmlstarlet tr --omit-decl --docbook /usr/share/sgml/docbook/yelp/docbook/html/docbook.xsl  sgml/docbook1.sgml | \
+    ./xmlstarlet fo --html --indent-spaces 2

@@ -1,0 +1,2 @@
+#!/bin/sh
+./xmlstarlet c14n xml/c14n-default-attr.xml

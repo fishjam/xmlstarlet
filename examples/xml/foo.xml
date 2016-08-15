@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<!DOCTYPE doc SYSTEM "foo.dtd">
+<doc>
+<foo>This is a "foo" line.</foo>
+<bar>This is a "bar" line.</bar>
+<foo>This is another "foo" line.</foo>
+</doc>

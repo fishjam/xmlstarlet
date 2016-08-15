@@ -1,0 +1,18 @@
+#! /bin/sh
+
+/usr/bin/pkgmk -o
+
+CUR_DIR=`pwd`
+
+FILE=xmlstarlet
+PKG=SFxmlstar
+VERSION=`/usr/bin/pkgparam -d /var/spool/pkg SFxmlstar VERSION`
+ARCH=`/usr/bin/pkgparam -d /var/spool/pkg SFxmlstar ARCH`
+OS=sol9
+BASE=local
+FULL_FILE=${FILE}-${VERSION}-${OS}-${ARCH}-${BASE}
+
+/usr/bin/pkgtrans -s /var/spool/pkg ${CUR_DIR}/${FULL_FILE} ${PKG}
+
+/usr/bin/gzip ${FULL_FILE}
+

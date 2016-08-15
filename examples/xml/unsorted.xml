@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<root>
+  <!-- rank 1 is vowel, rank 2 is consonant -->
+  <elem name="c" rank="2"/>
+  <elem name="e" rank="1"/>
+  <elem name="a" rank="1"/>
+  <elem name="d" rank="2"/>
+  <elem name="b" rank="2"/>
+
+  <elem name="B" rank="2"/>
+  <elem name="A" rank="1"/>
+  <elem name="D" rank="2"/>
+  <elem name="E" rank="1"/>
+  <elem name="C" rank="2"/>
+</root>

@@ -1,0 +1,3 @@
+#!/bin/sh
+# Include one XML document into another using XInclude
+./xmlstarlet tr --xinclude xsl/cat.xsl xml/document.xml | ./xmlstarlet c14n

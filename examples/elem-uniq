@@ -1,0 +1,3 @@
+#!/bin/sh
+# display unique elements
+./xmlstarlet el -u ./xml/tab-obj.xml

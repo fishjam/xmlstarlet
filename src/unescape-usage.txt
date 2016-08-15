@@ -1,0 +1,7 @@
+XMLStarlet Toolkit: Unescape special XML characters
+Usage: PROG unesc [<options>] [<string>]
+where <options> are
+  --help      - print usage
+  (TODO: more to be added in future)
+if <string> is missing stdin is used instead.
+

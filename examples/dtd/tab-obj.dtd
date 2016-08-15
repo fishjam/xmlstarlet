@@ -1,0 +1,17 @@
+<!ELEMENT numField ( #PCDATA ) >
+
+<!ELEMENT object ( property+ ) >
+<!ATTLIST object name NMTOKEN #REQUIRED >
+
+<!ELEMENT property ( #PCDATA ) >
+<!ATTLIST property name NMTOKEN #REQUIRED >
+
+<!ELEMENT rec ( numField, stringField, object? ) >
+<!ATTLIST rec id NMTOKEN #REQUIRED >
+
+<!ELEMENT stringField ( #PCDATA ) >
+
+<!ELEMENT table ( rec+ ) >
+
+<!ELEMENT xml ( table ) >
+

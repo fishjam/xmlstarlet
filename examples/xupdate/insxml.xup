@@ -1,0 +1,17 @@
+<xupdate:modifications version="1.0"
+       xmlns:xupdate="http://www.xmldb.org/xupdate"> 
+
+   <xupdate:append select="/addresses" >
+      <xupdate:element name="address">
+         <xupdate:attribute name="id">2</xupdate:attribute>
+         <name>
+            <first>Susan</first>
+            <last>Long</last>
+         </name>
+         <city>Tucson</city>
+         <state>Arizona</state>
+         <country>United States</country>
+         <phone type="home">430-304-3040</phone>
+      </xupdate:element>      
+   </xupdate:append>
+</xupdate:modifications> 

@@ -1,0 +1,2 @@
+#!/bin/sh
+./xmlstarlet ed -d "//namespace::xsi" xml/S0.xml

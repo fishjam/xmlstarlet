@@ -1,0 +1,5 @@
+#!/bin/sh
+# Use EXSLT functions
+echo '<x/>' | ./xmlstarlet ed -O -u /x -x 'date:day-name("2011-09-24")'
+echo '<x/>' | ./xmlstarlet ed -O -u /x -x 'math:abs(-1000)'
+echo '<x><n>a</n><n>b</n><n>a</n></x>' | ./xmlstarlet ed -O -u /x -x 'count(set:distinct(/x/*))'

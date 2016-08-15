@@ -1,0 +1,5 @@
+#!/bin/sh
+. ./bigxml
+xmldoc '<a>foo</a>' \
+    | ./xmlstarlet val --dtd dtd/bigxml.dtd --err - 2>&1 >/dev/null \
+    | ${SED:-sed} -n "$SEDLINUM_PROG"

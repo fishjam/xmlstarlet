@@ -1,0 +1,3 @@
+#!/bin/sh
+# Passing parameters to XSLT stylesheet
+./xmlstarlet tr xsl/param1.xsl -p Count='count(/xml/table/rec)' -s Text="Count=" xml/table.xml

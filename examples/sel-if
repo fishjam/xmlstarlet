@@ -1,0 +1,4 @@
+#!/bin/sh
+echo '<x/>' | ./xmlstarlet sel -T -t -i 'true()'  -o yes -n --else -o no -n -b -o all -n
+echo '<x/>' | ./xmlstarlet sel -T -t -i 'false()' -o yes -n --else -o no -n -b -o all -n
+echo '<x/>' | ./xmlstarlet sel -T -t -i 'false()' -o yes -n --elif 'true()' -o maybe -n --else -o no -n -b -o all -n

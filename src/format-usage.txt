@@ -1,0 +1,18 @@
+XMLStarlet Toolkit: Format XML document
+Usage: PROG fo [<options>] <xml-file>
+where <options> are
+  -n or --noindent            - do not indent
+  -t or --indent-tab          - indent output with tabulation
+  -s or --indent-spaces <num> - indent output with <num> spaces
+  -o or --omit-decl           - omit xml declaration <?xml version="1.0"?>
+  --net                       - allow network access
+  -R or --recover             - try to recover what is parsable
+  -D or --dropdtd             - remove the DOCTYPE of the input docs
+  -C or --nocdata             - replace cdata section with text nodes
+  -N or --nsclean             - remove redundant namespace declarations
+  -e or --encode <encoding>   - output in the given encoding (utf-8, unicode...)
+#ifdef LIBXML_HTML_ENABLED
+  -H or --html                - input is HTML
+#endif
+  -h or --help                - print help
+

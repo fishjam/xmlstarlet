@@ -1,0 +1,4 @@
+#!/bin/sh
+./xmlstarlet sel -t -c //foo xml/external-pe.xml | ./xmlstarlet c14n
+echo
+./xmlstarlet sel -T -t -v //foo --nl xml/external-pe.xml

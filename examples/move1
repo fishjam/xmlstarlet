@@ -1,0 +1,4 @@
+#!/bin/sh
+# Move element node
+echo '<x id="1"><a/><b/></x>' | ./xmlstarlet ed -m "//b" "//a"
+

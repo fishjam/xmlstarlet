@@ -1,0 +1,1781 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<book xmlns="http://docbook.org/ns/docbook"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:db="http://docbook.org/ns/docbook"
+      version="5.0"
+      xml:lang="en">
+  <title>XmlStarlet Command Line XML Toolkit User's Guide</title>
+
+  <info>
+    <date>June 17, 2012</date>
+
+    <author>
+      <personname>
+        <firstname>Mikhail</firstname>
+        <surname>Grushinskiy</surname>
+      </personname>
+    </author>
+  </info>
+
+  <chapter>
+    <title xml:id="s.1">Introduction</title>
+
+    <sect1>
+      <title xml:id="s.1.1">About XmlStarlet</title>
+
+      <para><link xlink:href="http://xmlstar.sourceforge.net/">XMLStarlet</link> is
+      a set of command line utilities (tools) which can be used to transform,
+      query, validate, and edit XML documents and files using simple set of
+      shell commands in similar way it is done for plain text files using UNIX
+      grep, sed, awk, diff, patch, join, etc commands.</para>
+
+      <para>This set of command line utilities can be used by those who deal
+      with many XML documents on UNIX shell command prompt as well as for
+      automated XML processing with shell scripts.</para>
+
+      <para>XMLStarlet command line utility is written in C and uses libxml2
+      and libxslt from <link
+      xlink:href="http://xmlsoft.org/">http://xmlsoft.org/</link>. Implementation of
+      extensive choice of options for XMLStarlet utility was only possible
+      because of rich feature set of libxml2 and libxslt (many thanks to the
+      developers of those libraries for great work).</para>
+
+      <para>'diff' and 'patch' options are not currently implemented. Other
+      features need some work too. Please, send an email to the project
+      administrator (see <link
+      xlink:href="http://sourceforge.net/projects/xmlstar/">http://sourceforge.net/projects/xmlstar/</link>)
+      if you wish to help.</para>
+
+      <para>XMLStarlet is linked statically to both libxml2 and libxslt, so
+      generally all you need to process XML documents is one executable file.
+      To run XmlStarlet utility you can simple type '<phrase role="PROG"/>' on command line and
+      see list of options available.</para>
+
+      <para>XMLStarlet is open source freeware under MIT license which allows
+      free use and distribution for both commercial and non-commercial
+      projects.</para>
+
+      <para>We welcome any user's feedback on this project which would greatly
+      help us to improve its quality. Comments, suggestions, feature requests,
+      bug reports can be done via SourceForge project web site (see <link
+      xlink:href="http://sourceforge.net/p/xmlstar/discussion/">XMLStarlet
+      Sourceforge forums</link>, or <link
+      xlink:href="http://sourceforge.net/p/xmlstar/mailman/">XMLStarlet
+      mailing list</link>)</para>
+    </sect1>
+
+    <sect1>
+      <title xml:id="s.1.2">Main Features</title>
+
+      <para>The toolkit's feature set includes options to:</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>Check or validate XML files (simple well-formedness check,
+          DTD, XSD, RelaxNG)</para>
+        </listitem>
+
+        <listitem>
+          <para>Calculate values of XPath expressions on XML files (such as
+          running sums, etc)</para>
+        </listitem>
+
+        <listitem>
+          <para>Search XML files for matches to given XPath expressions</para>
+        </listitem>
+
+        <listitem>
+          <para>Apply XSLT stylesheets to XML documents (including EXSLT
+          support, and passing parameters to stylesheets)</para>
+        </listitem>
+
+        <listitem>
+          <para>Query XML documents (ex. query for value of some elements of
+          attributes, sorting, etc)</para>
+        </listitem>
+
+        <listitem>
+          <para>Modify or edit XML documents (ex. delete some elements)</para>
+        </listitem>
+
+        <listitem>
+          <para>Format or "beautify" XML documents (as changing indentation,
+          etc)</para>
+        </listitem>
+
+        <listitem>
+          <para>Fetch XML documents using http:// or ftp:// URLs</para>
+        </listitem>
+
+        <listitem>
+          <para>Browse tree structure of XML documents (in similar way to 'ls'
+          command for directories)</para>
+        </listitem>
+
+        <listitem>
+          <para>Include one XML document into another using XInclude</para>
+        </listitem>
+
+        <listitem>
+          <para>XML c14n canonicalization</para>
+        </listitem>
+
+        <listitem>
+          <para>Escape/unescape special XML characters in input text</para>
+        </listitem>
+
+        <listitem>
+          <para>Print directory as XML document</para>
+        </listitem>
+
+        <listitem>
+          <para>Convert XML into PYX format (based on ESIS - ISO 8879), and
+          vice versa</para>
+        </listitem>
+      </itemizedlist>
+
+      <para></para>
+    </sect1>
+
+    <sect1>
+      <title xml:id="s.1.3">Supported Platforms</title>
+
+      <para>Here is a list of platforms on which XmlStarlet is known to
+      work.</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>Linux</para>
+        </listitem>
+      </itemizedlist>
+
+      <itemizedlist>
+        <listitem>
+          <para>Solaris</para>
+        </listitem>
+      </itemizedlist>
+
+      <itemizedlist>
+        <listitem>
+          <para>Windows</para>
+        </listitem>
+      </itemizedlist>
+
+      <itemizedlist>
+        <listitem>
+          <para>MacOS X</para>
+        </listitem>
+      </itemizedlist>
+
+      <itemizedlist>
+        <listitem>
+          <para>FreeBSD/NetBSD</para>
+        </listitem>
+      </itemizedlist>
+
+      <itemizedlist>
+        <listitem>
+          <para>HP-UX</para>
+        </listitem>
+      </itemizedlist>
+
+      <itemizedlist>
+        <listitem>
+          <para>AIX</para>
+        </listitem>
+      </itemizedlist>
+
+      <para>You might be able to compile and make it on others too.</para>
+    </sect1>
+
+    <sect1>
+      <title xml:id="s.1.4">Finding binary packages</title>
+
+      <para>Here is a list of sites where you can also find XmlStarlet binary
+      packages.</para>
+
+      <itemizedlist>
+        <listitem>
+          <para><link
+          xlink:href="http://www.suse.com/us/private/products/suse_linux/prof/packages_professional/xmlstarlet.html">SuSE
+          Packages</link></para>
+        </listitem>
+      </itemizedlist>
+
+      <itemizedlist>
+        <listitem>
+          <para><link
+          xlink:href="http://linux01.gwdg.de/~pbleser/rpm-navigation.php?cat=%2FUtilities%2Fxmlstarlet/">SuSE
+          Guru's RPM Site</link></para>
+        </listitem>
+      </itemizedlist>
+
+      <itemizedlist>
+        <listitem>
+          <para><link
+          xlink:href="http://www.freebsd.org/cgi/ports.cgi?query=xmlstarlet&amp;stype=all">FreeBSD
+          Ports</link></para>
+        </listitem>
+      </itemizedlist>
+
+      <itemizedlist>
+        <listitem>
+          <para><link
+          xlink:href="http://www.freshports.org/textproc/xmlstarlet/">FreeBSD Fresh
+          Ports</link></para>
+        </listitem>
+      </itemizedlist>
+
+      <itemizedlist>
+        <listitem>
+          <para><link
+          xlink:href="http://fink.sourceforge.net/pdb/package.php/xmlstarlet">Mac OS
+          Fink</link></para>
+        </listitem>
+      </itemizedlist>
+
+      <itemizedlist>
+        <listitem>
+          <para><link
+          xlink:href="http://rpms.mandrakeclub.com/linux/rpm2html/search.php?query=xmlstarlet">Mandrake
+          RPMs</link></para>
+        </listitem>
+      </itemizedlist>
+
+      <itemizedlist>
+        <listitem>
+          <para><link
+          xlink:href="http://gentoo-portage.com/app-text/xmlstarlet">Gentoo
+          Portage</link></para>
+        </listitem>
+      </itemizedlist>
+
+      <itemizedlist>
+        <listitem>
+          <para><link
+          xlink:href="http://packages.debian.org/stable/text/xmlstarlet">Debian</link></para>
+        </listitem>
+      </itemizedlist>
+    </sect1>
+  </chapter>
+
+  <chapter>
+    <title xml:id="s.2">Installation</title>
+
+    <sect1>
+      <title xml:id="s.2.1">Installation on Linux</title>
+
+      <para>Execute the following command as root<programlisting>rpm -i xmlstarlet-x.x.x-1.i386.rpm</programlisting></para>
+
+      <para>where x.x.x indicates package version.</para>
+
+      <para>You can use <link
+      xlink:href="http://fr2.rpmfind.net/linux/rpm2html/search.php?query=xmlstarlet&amp;system=&amp;arch=">http://rpmfind.net</link>
+      to search for RPM appropriate for your distribution.</para>
+    </sect1>
+
+    <sect1>
+      <title xml:id="s.2.2">Installation on Solaris</title>
+
+      <para>Execute the following commands as root<programlisting>gunzip xmlstarlet-x.x.x-sol8-sparc-local.gz
+pkgadd -d xmlstarlet-x.x.x-sol8-sparc-local all</programlisting></para>
+    </sect1>
+
+    <sect1>
+      <title xml:id="s.2.3">Installation on MacOS X</title>
+
+      <para>XmlStarlet is available on MacOS in Fink. <link
+      xlink:href="http://fink.sourceforge.net/pdb/package.php/xmlstarlet">See
+      fink.sourceforge.net</link></para>
+    </sect1>
+
+    <sect1>
+      <title xml:id="s.2.4">Installation on Windows</title>
+
+      <para>Unzip the file xmlstarlet-x.x.x-win32.zip to some directory. To
+      take advantage of UNIX shell scripting you might want to run XmlStarlet
+      from Cygwin. Consider installing <link
+      xlink:href="http://www.cygwin.com/">Cygwin</link> on your Windows
+      machine.</para>
+    </sect1>
+  </chapter>
+
+  <chapter>
+    <title xml:id="s.3">Getting Started</title>
+
+    <sect1>
+      <title xml:id="s.3.1">Basic Command-Line Options</title>
+
+      <para>Basic command line syntax: <programlisting>bash-2.03$ <phrase role="PROG"/>
+XMLStarlet Toolkit: Command line utilities for XML
+Usage: <phrase role="PROG"/> [&lt;options&gt;] &lt;command&gt; [&lt;cmd-options&gt;]
+where &lt;command&gt; is one of:
+   ed    (or edit)      - Edit/Update XML document(s)
+   sel   (or select)    - Select data or query XML document(s) (XPATH, etc)
+   tr    (or transform) - Transform XML document(s) using XSLT
+   val   (or validate)  - Validate XML document(s) (well-formed/DTD/XSD/RelaxNG)
+   fo    (or format)    - Format XML document(s)
+   el    (or elements)  - Display element structure of XML document
+   c14n  (or canonic)   - XML canonicalization
+   ls    (or list)      - List directory as XML
+   esc   (or escape)    - Escape special XML characters
+   unesc (or unescape)  - Unescape special XML characters
+   pyx   (or xmln)      - Convert XML into PYX format (based on ESIS - ISO 8879)
+   p2x   (or depyx)     - Convert PYX into XML
+&lt;options&gt; are:
+   -q or --quiet        - no error output
+   --doc-namespace      - extract namespace bindings from input doc (default)
+   --no-doc-namespace   - don't extract namespace bindings from input doc
+   --version            - show version
+   --help               - show help
+Wherever file name mentioned in command help it is assumed
+that URL can be used instead as well.
+
+Type: <phrase role="PROG"/> &lt;command&gt; --help &lt;ENTER&gt; for command help
+
+XMLStarlet is a command line toolkit to query/edit/check/transform
+XML documents (for more information see http://xmlstar.sourceforge.net/)</programlisting></para>
+    </sect1>
+
+    <sect1>
+      <title xml:id="s.3.2">Studying Structure of XML Document</title>
+
+      <para>Before you do anything with your XML document you probably would
+      like to know its structure at first. 'el' option could be used for this
+      purpose.</para>
+
+      <para>Let's say you have the following XML document (table.xml)</para>
+
+      <programlisting>&lt;xml&gt;
+  &lt;table&gt;
+    &lt;rec id="1"&gt;
+      &lt;numField&gt;123&lt;/numField&gt;
+      &lt;stringField&gt;String Value&lt;/stringField&gt;
+    &lt;/rec&gt;
+    &lt;rec id="2"&gt;
+      &lt;numField&gt;346&lt;/numField&gt;
+      &lt;stringField&gt;Text Value&lt;/stringField&gt;
+    &lt;/rec&gt;
+    &lt;rec id="3"&gt;
+      &lt;numField&gt;-23&lt;/numField&gt;
+      &lt;stringField&gt;stringValue&lt;/stringField&gt;
+    &lt;/rec&gt;
+  &lt;/table&gt;
+&lt;/xml&gt;</programlisting>
+
+      <programlisting><phrase role="PROG"/> el table.xml</programlisting>
+
+      <para>would produce the following output.</para>
+
+      <programlisting>xml
+xml/table
+xml/table/rec
+xml/table/rec/numField
+xml/table/rec/stringField
+xml/table/rec
+xml/table/rec/numField
+xml/table/rec/stringField
+xml/table/rec
+xml/table/rec/numField
+xml/table/rec/stringField</programlisting>
+
+      <para>Every line in this output is an XPath expression which indicates a
+      'path' to elements in XML document. You would use these XPath
+      expressions to navigate through your XML documents in other XmlStarlet
+      options.</para>
+
+      <para>XML documents can be pretty large but with a very simple
+      structure. (This is espesially true for data driven XML documents ex:
+      XML formatted result of select from SQL table). If you just interested
+      in structure but not order of the elements you can use -u switch
+      combined with 'el' option.</para>
+
+      <para>EXAMPLE:</para>
+
+      <programlisting><phrase role="PROG"/> el -u table.xml</programlisting>
+
+      <para>Output:</para>
+
+      <programlisting>xml
+xml/table
+xml/table/rec
+xml/table/rec/numField
+xml/table/rec/stringField</programlisting>
+
+      <para>If you are interested not just in elements of your XML document,
+      but you want to see attributes as well you can use -a switch with 'el'
+      option. And every line of the output will still be a valid XPath
+      expression.</para>
+
+      <para>EXAMPLE:</para>
+
+      <programlisting><phrase role="PROG"/> el -a table.xml</programlisting>
+
+      <para>Output:</para>
+
+      <programlisting>xml
+xml/table
+xml/table/rec
+xml/table/rec/@id
+xml/table/rec/numField
+xml/table/rec/stringField
+xml/table/rec
+xml/table/rec/@id
+xml/table/rec/numField
+xml/table/rec/stringField
+xml/table/rec
+xml/table/rec/@id
+xml/table/rec/numField
+xml/table/rec/stringField</programlisting>
+
+      <para>If you are looking for attribute values as well use -v switch of
+      'el' option. And again - every line of output is a valid XPath
+      expression.</para>
+
+      <para>EXAMPLE:</para>
+
+      <programlisting><phrase role="PROG"/> el -v table.xml</programlisting>
+
+      <para>Output:</para>
+
+      <programlisting>xml
+xml/table
+xml/table/rec[@id='1']
+xml/table/rec/numField
+xml/table/rec/stringField
+xml/table/rec[@id='2']
+xml/table/rec/numField
+xml/table/rec/stringField
+xml/table/rec[@id='3']
+xml/table/rec/numField
+xml/table/rec/stringField</programlisting>
+    </sect1>
+  </chapter>
+
+  <chapter>
+    <title>XmlStarlet Reference</title>
+
+    <para></para>
+
+    <sect1>
+      <title>Querying XML documents</title>
+
+      <para>XmlStarlet 'select' or 'sel' option can be used to query or search
+      XML documents. Here is synopsis for '<phrase role="PROG"/> sel' command:</para>
+
+      <programlisting>XMLStarlet Toolkit: Select from XML document(s)
+Usage: <phrase role="PROG"/><![CDATA[ sel <global-options> {<template>} [ <xml-file> ... ]
+where
+  <global-options> - global options for selecting
+  <xml-file> - input XML document file name/uri (stdin is used if missing)
+  <template> - template for querying XML document with following syntax:
+
+<global-options> are:
+  -Q or --quiet             - do not write anything to standard output.
+  -C or --comp              - display generated XSLT
+  -R or --root              - print root element <xsl-select>
+  -T or --text              - output is text (default is XML)
+  -I or --indent            - indent output
+  -D or --xml-decl          - do not omit xml declaration line
+  -B or --noblanks          - remove insignificant spaces from XML tree
+  -E or --encode <encoding> - output in the given encoding (utf-8, unicode...)
+  -N <name>=<value>         - predefine namespaces (name without 'xmlns:')
+                              ex: xsql=urn:oracle-xsql
+                              Multiple -N options are allowed.
+  --net                     - allow fetch DTDs or entities over network
+  --help                    - display help
+
+Syntax for templates: -t|--template <options>
+where <options>
+  -c or --copy-of <xpath>   - print copy of XPATH expression
+  -v or --value-of <xpath>  - print value of XPATH expression
+  -o or --output <string>   - output string literal
+  -n or --nl                - print new line
+  -f or --inp-name          - print input file name (or URL)
+  -m or --match <xpath>     - match XPATH expression
+  --var <name> <value> --break or
+  --var <name>=<value>      - declare a variable (referenced by $name)
+  -i or --if <test-xpath>   - check condition <xsl:if test="test-xpath">
+  --elif <test-xpath>       - check condition if previous conditions failed
+  --else                    - check if previous conditions failed
+  -e or --elem <name>       - print out element <xsl:element name="name">
+  -a or --attr <name>       - add attribute <xsl:attribute name="name">
+  -b or --break             - break nesting
+  -s or --sort op xpath     - sort in order (used after -m) where
+  op is X:Y:Z, 
+      X is A - for order="ascending"
+      X is D - for order="descending"
+      Y is N - for data-type="numeric"
+      Y is T - for data-type="text"
+      Z is U - for case-order="upper-first"
+      Z is L - for case-order="lower-first"
+
+There can be multiple --match, --copy-of, --value-of, etc options
+in a single template. The effect of applying command line templates
+can be illustrated with the following XSLT analogue
+
+]]><phrase role="PROG"/><![CDATA[ sel -t -c "xpath0" -m "xpath1" -m "xpath2" -v "xpath3" \
+        -t -m "xpath4" -c "xpath5"
+
+is equivalent to applying the following XSLT
+
+<?xml version="1.0"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:template match="/">
+  <xsl:call-template name="t1"/>
+  <xsl:call-template name="t2"/>
+</xsl:template>
+<xsl:template name="t1">
+  <xsl:copy-of select="xpath0"/>
+  <xsl:for-each select="xpath1">
+    <xsl:for-each select="xpath2">
+      <xsl:value-of select="xpath3"/>
+    </xsl:for-each>
+  </xsl:for-each>
+</xsl:template>
+<xsl:template name="t2">
+  <xsl:for-each select="xpath4">
+    <xsl:copy-of select="xpath5"/>
+  </xsl:for-each>
+</xsl:template>
+</xsl:stylesheet>
+
+]]></programlisting>
+
+      <para>'select' option allows you basically avoid writting XSLT
+      stylesheet to perform some queries on XML documents. I.e. various
+      combinations of command line parameters will let you to generate XSLT
+      stylesheet and apply in to XML documents with a single command line.
+      Very often you do not really care what XSLT was created for you 'select'
+      command, but in those cases when you do; you can always use -C or --comp
+      switch which will let you see exactly which XSLT is applied to your
+      input.</para>
+
+      <para>'select' option supports many EXSLT functions in XPath
+      expressions.</para>
+
+      <para>Here are few examples which will help to understand how '<phrase role="PROG"/>
+      select' works:</para>
+
+      <para>EXAMPLE:</para>
+
+      <para>Count elements matching XPath expression:</para>
+
+      <para></para>
+
+      <programlisting><phrase role="PROG"/> sel -t -v "count(/xml/table/rec/numField)" table.xml</programlisting>
+
+      <para>Input (table.xml):</para>
+
+      <programlisting>&lt;xml&gt;
+  &lt;table&gt;
+    &lt;rec id="1"&gt;
+      &lt;numField&gt;123&lt;/numField&gt;
+      &lt;stringField&gt;String Value&lt;/stringField&gt;
+    &lt;/rec&gt;
+    &lt;rec id="2"&gt;
+      &lt;numField&gt;346&lt;/numField&gt;
+      &lt;stringField&gt;Text Value&lt;/stringField&gt;
+    &lt;/rec&gt;
+    &lt;rec id="3"&gt;
+      &lt;numField&gt;-23&lt;/numField&gt;
+      &lt;stringField&gt;stringValue&lt;/stringField&gt;
+    &lt;/rec&gt;
+  &lt;/table&gt;
+&lt;/xml&gt;</programlisting>
+
+      <para>Output:</para>
+
+      <programlisting>3
+</programlisting>
+
+      <para>Let's take a close look what it did internally. For that we will
+      use '-C' option</para>
+
+      <programlisting>$ <phrase role="PROG"/> sel -C -t -v "count(/xml/table/rec/numField)"
+&lt;?xml version="1.0"?&gt;
+&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+ xmlns:exslt="http://exslt.org/common"
+ xmlns:math="http://exslt.org/math"
+ xmlns:date="http://exslt.org/dates-and-times"
+ xmlns:func="http://exslt.org/functions"
+ xmlns:set="http://exslt.org/sets"
+ xmlns:str="http://exslt.org/strings"
+ xmlns:dyn="http://exslt.org/dynamic"
+ xmlns:saxon="http://icl.com/saxon"
+ xmlns:xalanredirect="org.apache.xalan.xslt.extensions.Redirect"
+ xmlns:xt="http://www.jclark.com/xt"
+ xmlns:libxslt="http://xmlsoft.org/XSLT/namespace"
+ xmlns:test="http://xmlsoft.org/XSLT/"
+ extension-element-prefixes=
+   "exslt math date func set str dyn saxon xalanredirect xt libxslt test"
+ exclude-result-prefixes="math str"&gt;
+&lt;xsl:output omit-xml-declaration="yes" indent="no"/&gt;
+&lt;xsl:param name="inputFile"&gt;-&lt;/xsl:param&gt;
+&lt;xsl:template match="/"&gt;
+  &lt;xsl:call-template name="t1"/&gt;
+&lt;/xsl:template&gt;
+&lt;xsl:template name="t1"&gt;
+  &lt;xsl:value-of select="count(/xml/table/rec/numField)"/&gt;
+&lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</programlisting>
+
+      <para>Ignoring some XSLT stuff to make it brief:</para>
+
+      <programlisting>&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+&lt;xsl:output omit-xml-declaration="yes" indent="no"/&gt;
+&lt;xsl:param name="inputFile"&gt;-&lt;/xsl:param&gt;
+&lt;xsl:template match="/"&gt;
+  &lt;xsl:call-template name="t1"/&gt;
+&lt;/xsl:template&gt;
+&lt;xsl:template name="t1"&gt;
+  &lt;xsl:value-of select="count(/xml/table/rec/numField)"/&gt;
+&lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</programlisting>
+
+      <para>Every -t option is mapped into XSLT template. Options after '-t'
+      are mapped into XSLT elements:</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>-v to &lt;xsl:value-of&gt;</para>
+        </listitem>
+
+        <listitem>
+          <para>-c to &lt;xsl:copy-of&gt;</para>
+        </listitem>
+
+        <listitem>
+          <para>-e to &lt;xsl:element&gt;</para>
+        </listitem>
+
+        <listitem>
+          <para>-a to &lt;xsl:attribute&gt;</para>
+        </listitem>
+
+        <listitem>
+          <para>-s to &lt;xsl:sort&gt;</para>
+        </listitem>
+
+        <listitem>
+          <para>-m to &lt;xsl:for-each&gt;</para>
+        </listitem>
+
+        <listitem>
+          <para>-i to &lt;xsl:if&gt;</para>
+        </listitem>
+
+        <listitem>
+          <para>and so on</para>
+        </listitem>
+      </itemizedlist>
+
+      <para>By default subsequent options (for instance: -m) will result in
+      nested corresponding XSLT elements (&lt;xsl:for-each&gt; for '-m'). To
+      break this nesting you would have to put '-b' or '--break' after first
+      '-m'.</para>
+
+      <para>Below are few more examples:</para>
+
+      <para>EXAMPLE</para>
+
+      <para>Count all nodes in XML documents. Print input name and node count
+      after it.</para>
+
+      <programlisting><phrase role="PROG"/> sel -t -f -o " " -v "count(//node())" xml/table.xml xml/tab-obj.xml</programlisting>
+
+      <para>Output:</para>
+
+      <programlisting>xml/table.xml 32
+xml/tab-obj.xml 41</programlisting>
+
+      <para></para>
+
+      <para>EXAMPLE</para>
+
+      <para>Find XML files matching XPath expression (containing 'object'
+      element)</para>
+
+      <programlisting><phrase role="PROG"/> sel -t -m //object -f xml/table.xml xml/tab-obj.xml</programlisting>
+
+      <para>Result output:</para>
+
+      <programlisting>xml/tab-obj.xml</programlisting>
+
+      <para></para>
+
+      <para>EXAMPLE</para>
+
+      <para>Calculate EXSLT (XSLT extentions) XPath value</para>
+
+      <programlisting>echo "&lt;x/&gt;" | <phrase role="PROG"/> sel -t -v "math:abs(-1000)"</programlisting>
+
+      <para>Result output:</para>
+
+      <programlisting>1000</programlisting>
+
+      <para></para>
+
+      <para>EXAMPLE</para>
+
+      <para>Adding elements and attributes using command line '<phrase role="PROG"/> sel'</para>
+
+      <programlisting>echo "&lt;x/&gt;" | <phrase role="PROG"/> sel -t -m / -e xml -e child -a data -o value</programlisting>
+
+      <para>Result Output:</para>
+
+      <programlisting>&lt;xml&gt;&lt;child data="value"/&gt;&lt;/xml&gt;</programlisting>
+
+      <para></para>
+
+      <para>EXAMPLE</para>
+
+      <para>Query XML document and produce sorted text table</para>
+
+      <programlisting><phrase role="PROG"/> sel -T -t -m /xml/table/rec -s D:N:- "@id" \
+  -v "concat(@id,'|',numField,'|',stringField)" -n xml/table.xml</programlisting>
+
+      <para>Result Output:</para>
+
+      <programlisting>3|-23|stringValue
+2|346|Text Value
+1|123|String Value</programlisting>
+
+      <para>Equivalent stylesheet</para>
+
+      <programlisting>&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+&lt;xsl:output omit-xml-declaration="yes" indent="no" method="text"/&gt;
+&lt;xsl:param name="inputFile"&gt;-&lt;/xsl:param&gt;
+&lt;xsl:template match="/"&gt;
+  &lt;xsl:call-template name="t1"/&gt;
+&lt;/xsl:template&gt;
+&lt;xsl:template name="t1"&gt;
+  &lt;xsl:for-each select="/xml/table/rec"&gt;
+    &lt;xsl:sort order="descending" data-type="number" 
+      case-order="upper-first" select="@id"/&gt;
+    &lt;xsl:value-of select="concat(@id,'|',numField,'|',stringField)"/&gt;
+    &lt;xsl:value-of select="'&amp;#10;'"/&gt;
+  &lt;/xsl:for-each&gt;
+&lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</programlisting>
+
+      <para></para>
+
+      <para>EXAMPLE</para>
+
+      <para>Predefine namespaces for XPath expressions</para>
+
+      <programlisting><phrase role="PROG"/> sel -N xsql=urn:oracle-xsql -t -v /xsql:query xsql/jobserve.xsql</programlisting>
+
+      <para>Input (xsql/jobserve.xsql)</para>
+
+      <programlisting>$ cat xsql/jobserve.xsql
+&lt;?xml version="1.0"?&gt;
+&lt;?xml-stylesheet type="text/xsl" href="jobserve.xsl"?&gt;
+&lt;xsql:query connection="jobs" xmlns:xsql="urn:oracle-xsql" max-rows="5"&gt;
+  SELECT substr(title,1,26) short_title, title, location, skills
+  FROM job
+  WHERE UPPER(title) LIKE '%ORACLE%'
+  ORDER BY first_posted DESC
+&lt;/xsql:query&gt;</programlisting>
+
+      <para>Result output</para>
+
+      <programlisting>  SELECT substr(title,1,26) short_title, title, location, skills
+  FROM job
+  WHERE UPPER(title) LIKE '%ORACLE%'
+  ORDER BY first_posted DESC
+</programlisting>
+
+      <para></para>
+
+      <para>EXAMPLE</para>
+
+      <para>Print structure of XML element using <phrase role="PROG"/> sel (advanced XPath
+      expressions and <phrase role="PROG"/> sel command usage)</para>
+
+      <programlisting><phrase role="PROG"/> sel -T -t -m '//*' \
+-m 'ancestor-or-self::*' -v 'name()' -i 'not(position()=last())' -o . -b -b -n \
+xml/structure.xml</programlisting>
+
+      <para>Input (xml/structure.xml)</para>
+
+      <programlisting>&lt;a1&gt;
+  &lt;a11&gt;
+    &lt;a111&gt;
+      &lt;a1111/&gt;
+    &lt;/a111&gt;
+    &lt;a112&gt;
+      &lt;a1121/&gt;
+    &lt;/a112&gt;
+  &lt;/a11&gt;
+  &lt;a12/&gt;
+  &lt;a13&gt;
+    &lt;a131/&gt;
+  &lt;/a13&gt;
+&lt;/a1&gt;</programlisting>
+
+      <para>Result Output:</para>
+
+      <programlisting>a1
+a1.a11
+a1.a11.a111
+a1.a11.a111.a1111
+a1.a11.a112
+a1.a11.a112.a1121
+a1.a12
+a1.a13
+a1.a13.a131</programlisting>
+
+      <para>This example is a good demonstration of nesting control. Here is
+      corresponding XSLT:</para>
+
+      <programlisting>&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+&lt;xsl:output omit-xml-declaration="yes" indent="no" method="text"/&gt;
+&lt;xsl:param name="inputFile"&gt;-&lt;/xsl:param&gt;
+&lt;xsl:template match="/"&gt;
+  &lt;xsl:call-template name="t1"/&gt;
+&lt;/xsl:template&gt;
+&lt;xsl:template name="t1"&gt;
+  &lt;xsl:for-each select="//*"&gt;
+    &lt;xsl:for-each select="ancestor-or-self::*"&gt;
+      &lt;xsl:value-of select="name()"/&gt;
+      &lt;xsl:if test="not(position()=last())"&gt;
+        &lt;xsl:value-of select="'.'"/&gt;
+      &lt;/xsl:if&gt;
+    &lt;/xsl:for-each&gt;
+    &lt;xsl:value-of select="'&amp;#10;'"/&gt;
+  &lt;/xsl:for-each&gt;
+&lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</programlisting>
+
+      <para></para>
+
+      <para></para>
+
+      <para>EXAMPLE</para>
+
+      <para>Print all links of xhtml document</para>
+
+      <programlisting><phrase role="PROG"/> sel --net --html -T -t -m "//*[local-name()='a']" \
+   -o 'NAME: ' -v "translate(. , '&amp;#10;', ' ')" -n \
+   -o 'LINK: ' -v @href -n -n \
+   http://xmlstar.sourceforge.net/</programlisting>
+
+      <para>Sample output</para>
+
+      <programlisting>NAME: XmlStarlet SourceForge Site
+LINK: http://sourceforge.net/projects/xmlstar/
+
+NAME: XmlStarlet CVS Source
+LINK: http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/xmlstar/
+
+NAME: XmlStarlet on Freshmeat.Net
+LINK: http://freshmeat.net/projects/xmlstarlet/
+
+NAME: XMLStarlet Sourceforge forums
+LINK: http://sourceforge.net/forum/?group_id=66612
+
+NAME: XMLStarlet mailing list
+LINK: http://lists.sourceforge.net/lists/listinfo/xmlstar-devel
+</programlisting>
+
+      <para></para>
+    </sect1>
+
+    <sect1>
+      <title>Transforming XML documents</title>
+
+      <para>Here is synopsis for '<phrase role="PROG"/> tr' command:</para>
+
+      <programlisting>XMLStarlet Toolkit: Transform XML document(s) using XSLT
+Usage: <phrase role="PROG"/> tr [&lt;options&gt;] &lt;xsl-file&gt; {-p|-s &lt;name&gt;=&lt;value&gt;} [ &lt;xml-file-or-uri&gt; ... ]
+where
+   &lt;xsl-file&gt;      - main XSLT stylesheet for transformation
+   &lt;xml-file&gt;      - input XML document file name (stdin is used if missing)
+   &lt;name&gt;=&lt;value&gt;  - name and value of the parameter passed to XSLT processor
+   -p              - parameter is XPATH expression ("'string'" to quote string)
+   -s              - parameter is a string literal
+&lt;options&gt; are:
+   --omit-decl     - omit xml declaration &lt;?xml version="1.0"?&gt;
+   --show-ext      - show list of extensions
+   --val           - allow validate against DTDs or schemas
+   --net           - allow fetch DTDs or entities over network
+   --xinclude      - do XInclude processing on document input
+   --maxdepth val  - increase the maximum depth
+   --html          - input document(s) is(are) in HTML format
+   --catalogs      - use SGML catalogs from $SGML_CATALOG_FILES
+                     otherwise XML catalogs starting from
+                     file:///etc/xml/catalog are activated by default
+
+XMLStarlet is a command line toolkit to query/edit/check/transform
+XML documents (for more information see http://xmlstar.sourceforge.net/)
+
+Current implementation uses libxslt from GNOME codebase as XSLT processor
+(see http://xmlsoft.org/ for more details)
+</programlisting>
+
+      <para>EXAMPLE:</para>
+
+      <programlisting># Transform passing parameters to XSLT stylesheet
+<phrase role="PROG"/> tr xsl/param1.xsl -p Count='count(/xml/table/rec)' -s Text="Count=" xml/table.xml
+</programlisting>
+
+      <para>Input xsl/params1.xsl</para>
+
+      <programlisting>&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+&lt;xsl:output method="text"/&gt;
+&lt;xsl:param name="Text"/&gt;
+&lt;xsl:param name="Count"/&gt;
+&lt;xsl:template match="/"&gt;
+  &lt;xsl:call-template name="t1"/&gt;
+&lt;/xsl:template&gt;
+&lt;xsl:template name="t1"&gt;
+  &lt;xsl:for-each select="/xml"&gt;
+    &lt;xsl:value-of select="$Text"/&gt;
+    &lt;xsl:value-of select="$Count"/&gt;
+    &lt;xsl:value-of select="'&amp;#10;'"/&gt;
+  &lt;/xsl:for-each&gt;
+&lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</programlisting>
+
+      <para>Output</para>
+
+      <programlisting>Count=3
+</programlisting>
+    </sect1>
+
+    <sect1>
+      <title>Editing XML documents</title>
+
+      <para>Here is the synopsis for '<phrase role="PROG"/> ed' command:</para>
+
+      <programlisting>XMLStarlet Toolkit: Edit XML document(s)
+Usage: <phrase role="PROG"/> ed &lt;global-options&gt; {&lt;action&gt;} [ &lt;xml-file-or-uri&gt; ... ]
+where
+  &lt;global-options&gt;  - global options for editing
+  &lt;xml-file-or-uri&gt; - input XML document file name/uri (stdin is used if missing)
+
+&lt;global-options&gt; are:
+  -P (or --pf)        - preserve original formatting
+  -S (or --ps)        - preserve non-significant spaces
+  -O (or --omit-decl) - omit XML declaration (&lt;?xml ...?&gt;)
+  -N &lt;name&gt;=&lt;value&gt;   - predefine namespaces (name without 'xmlns:')
+                        ex: xsql=urn:oracle-xsql
+                        Multiple -N options are allowed.
+                        -N options must be last global options.
+  --help or -h        - display help
+
+where &lt;action&gt;
+   -d or --delete &lt;xpath&gt;
+   -i or --insert &lt;xpath&gt; -t (--type) elem|text|attr -n &lt;name&gt; -v (--value) &lt;value&gt;
+   -a or --append &lt;xpath&gt; -t (--type) elem|text|attr -n &lt;name&gt; -v (--value) &lt;value&gt;
+   -s or --subnode &lt;xpath&gt; -t (--type) elem|text|attr -n &lt;name&gt; -v (--value) &lt;value&gt;
+   -m or --move &lt;xpath1&gt; &lt;xpath2&gt;
+   -r or --rename &lt;xpath1&gt; -v &lt;new-name&gt;
+   -u or --update &lt;xpath&gt; -v (--value) &lt;value&gt;
+                          -x (--expr) &lt;xpath&gt;
+
+XMLStarlet is a command line toolkit to query/edit/check/transform
+XML documents (for more information see http://xmlstar.sourceforge.net/)
+</programlisting>
+
+      <para>EXAMPLE:</para>
+
+      <programlisting># Delete elements matching XPath expression
+<phrase role="PROG"/> ed -d "/xml/table/rec[@id='2']" xml/table.xml
+</programlisting>
+
+      <para>Input</para>
+
+      <programlisting>&lt;xml&gt;
+  &lt;table&gt;
+    &lt;rec id="1"&gt;
+      &lt;numField&gt;123&lt;/numField&gt;
+      &lt;stringField&gt;String Value&lt;/stringField&gt;
+    &lt;/rec&gt;
+    &lt;rec id="2"&gt;
+      &lt;numField&gt;346&lt;/numField&gt;
+      &lt;stringField&gt;Text Value&lt;/stringField&gt;
+    &lt;/rec&gt;
+    &lt;rec id="3"&gt;
+      &lt;numField&gt;-23&lt;/numField&gt;
+      &lt;stringField&gt;stringValue&lt;/stringField&gt;
+    &lt;/rec&gt;
+  &lt;/table&gt;
+&lt;/xml&gt;
+</programlisting>
+
+      <para>Output</para>
+
+      <programlisting>&lt;xml&gt;
+  &lt;table&gt;
+    &lt;rec id="1"&gt;
+      &lt;numField&gt;123&lt;/numField&gt;
+      &lt;stringField&gt;String Value&lt;/stringField&gt;
+    &lt;/rec&gt;
+    &lt;rec id="3"&gt;
+      &lt;numField&gt;-23&lt;/numField&gt;
+      &lt;stringField&gt;stringValue&lt;/stringField&gt;
+    &lt;/rec&gt;
+  &lt;/table&gt;
+&lt;/xml&gt;
+</programlisting>
+
+      <para>EXAMPLE</para>
+
+      <programlisting># Move element node
+echo '&lt;x id="1"&gt;&lt;a/&gt;&lt;b/&gt;&lt;/x&gt;' | <phrase role="PROG"/> ed -m "//b" "//a"
+</programlisting>
+
+      <para>Output</para>
+
+      <programlisting>&lt;x id="1"&gt;
+  &lt;a&gt;
+    &lt;b/&gt;
+  &lt;/a&gt;
+&lt;/x&gt;
+</programlisting>
+
+      <para>EXAMPLE</para>
+
+      <programlisting># Rename attributes
+<phrase role="PROG"/> ed -r "//*/@id" -v ID xml/tab-obj.xml
+</programlisting>
+
+      <para>Output:</para>
+
+      <programlisting>&lt;xml&gt;
+  &lt;table&gt;
+    &lt;rec ID="1"&gt;
+      &lt;numField&gt;123&lt;/numField&gt;
+      &lt;stringField&gt;String Value&lt;/stringField&gt;
+      &lt;object name="Obj1"&gt;
+        &lt;property name="size"&gt;10&lt;/property&gt;
+        &lt;property name="type"&gt;Data&lt;/property&gt;
+      &lt;/object&gt;
+    &lt;/rec&gt;
+    &lt;rec ID="2"&gt;
+      &lt;numField&gt;346&lt;/numField&gt;
+      &lt;stringField&gt;Text Value&lt;/stringField&gt;
+    &lt;/rec&gt;
+    &lt;rec ID="3"&gt;
+      &lt;numField&gt;-23&lt;/numField&gt;
+      &lt;stringField&gt;stringValue&lt;/stringField&gt;
+    &lt;/rec&gt;
+  &lt;/table&gt;
+&lt;/xml&gt;
+</programlisting>
+
+      <para>EXAMPLE</para>
+
+      <programlisting># Rename elements
+<phrase role="PROG"/> ed -r "/xml/table/rec" -v record xml/tab-obj.xml
+</programlisting>
+
+      <para>Output:</para>
+
+      <programlisting>&lt;xml&gt;
+  &lt;table&gt;
+    &lt;record id="1"&gt;
+      &lt;numField&gt;123&lt;/numField&gt;
+      &lt;stringField&gt;String Value&lt;/stringField&gt;
+      &lt;object name="Obj1"&gt;
+        &lt;property name="size"&gt;10&lt;/property&gt;
+        &lt;property name="type"&gt;Data&lt;/property&gt;
+      &lt;/object&gt;
+    &lt;/record&gt;
+    &lt;record id="2"&gt;
+      &lt;numField&gt;346&lt;/numField&gt;
+      &lt;stringField&gt;Text Value&lt;/stringField&gt;
+    &lt;/record&gt;
+    &lt;record id="3"&gt;
+      &lt;numField&gt;-23&lt;/numField&gt;
+      &lt;stringField&gt;stringValue&lt;/stringField&gt;
+    &lt;/record&gt;
+  &lt;/table&gt;
+&lt;/xml&gt;
+</programlisting>
+
+      <para>EXAMPLE</para>
+
+      <programlisting># Update value of an attribute
+<phrase role="PROG"/> ed -u "/xml/table/rec[@id=3]/@id" -v 5 xml/tab-obj.xml
+</programlisting>
+
+      <para>Output:</para>
+
+      <programlisting>&lt;xml&gt;
+  &lt;table&gt;
+    &lt;rec id="1"&gt;
+      &lt;numField&gt;123&lt;/numField&gt;
+      &lt;stringField&gt;String Value&lt;/stringField&gt;
+      &lt;object name="Obj1"&gt;
+        &lt;property name="size"&gt;10&lt;/property&gt;
+        &lt;property name="type"&gt;Data&lt;/property&gt;
+      &lt;/object&gt;
+    &lt;/rec&gt;
+    &lt;rec id="2"&gt;
+      &lt;numField&gt;346&lt;/numField&gt;
+      &lt;stringField&gt;Text Value&lt;/stringField&gt;
+    &lt;/rec&gt;
+    &lt;rec id="5"&gt;
+      &lt;numField&gt;-23&lt;/numField&gt;
+      &lt;stringField&gt;stringValue&lt;/stringField&gt;
+    &lt;/rec&gt;
+  &lt;/table&gt;
+&lt;/xml&gt;
+</programlisting>
+
+      <para>EXAMPLE</para>
+
+      <programlisting># Update value of an element
+<phrase role="PROG"/> ed -u "/xml/table/rec[@id=1]/numField" -v 0 xml/tab-obj.xml
+</programlisting>
+
+      <para>Output:</para>
+
+      <programlisting>&lt;xml&gt;
+  &lt;table&gt;
+    &lt;rec id="1"&gt;
+      &lt;numField&gt;0&lt;/numField&gt;
+      &lt;stringField&gt;String Value&lt;/stringField&gt;
+      &lt;object name="Obj1"&gt;
+        &lt;property name="size"&gt;10&lt;/property&gt;
+        &lt;property name="type"&gt;Data&lt;/property&gt;
+      &lt;/object&gt;
+    &lt;/rec&gt;
+    &lt;rec id="2"&gt;
+      &lt;numField&gt;346&lt;/numField&gt;
+      &lt;stringField&gt;Text Value&lt;/stringField&gt;
+    &lt;/rec&gt;
+    &lt;rec id="3"&gt;
+      &lt;numField&gt;-23&lt;/numField&gt;
+      &lt;stringField&gt;stringValue&lt;/stringField&gt;
+    &lt;/rec&gt;
+  &lt;/table&gt;
+&lt;/xml&gt;
+</programlisting>
+    </sect1>
+
+    <sect1>
+      <title>Validating XML documents</title>
+
+      <para>Here is synopsis for '<phrase role="PROG"/> val' command:</para>
+
+      <programlisting>XMLStarlet Toolkit: Validate XML document(s)
+Usage: <phrase role="PROG"/> val &lt;options&gt; [ &lt;xml-file-or-uri&gt; ... ]
+where &lt;options&gt;
+   -w or --well-formed        - validate well-formedness only (default)
+   -d or --dtd &lt;dtd-file&gt;     - validate against DTD
+   -s or --xsd &lt;xsd-file&gt;     - validate against XSD schema
+   -r or --relaxng &lt;rng-file&gt; - validate against Relax-NG schema
+   -e or --err                - print verbose error messages on stderr
+   -b or --list-bad           - list only files which do not validate
+   -g or --list-good          - list only files which validate
+   -q or --quiet              - do not list files (return result code only)
+
+NOTE: XML Schemas are not fully supported yet due to its incomplete
+      support in libxml (see http://xmlsoft.org)
+
+XMLStarlet is a command line toolkit to query/edit/check/transform
+XML documents (for more information see http://xmlstar.sourceforge.net/)
+</programlisting>
+
+      <para>EXAMPLE</para>
+
+      <programlisting># Validate XML document against DTD
+<phrase role="PROG"/> val --dtd dtd/table.dtd xml/tab-obj.xml &gt;/dev/null 2&gt;&amp;1; echo $?
+</programlisting>
+
+      <para>Output:</para>
+
+      <programlisting>1
+</programlisting>
+
+      <para>EXAMPLE</para>
+
+      <programlisting># Validate against XSD schema
+<phrase role="PROG"/> val -b -s xsd/table.xsd xml/table.xml xml/tab-obj.xml 2&gt;/dev/null; echo $?
+</programlisting>
+
+      <para>Output:</para>
+
+      <programlisting>xml/tab-obj.xml
+1
+</programlisting>
+    </sect1>
+
+    <sect1>
+      <title>Formatting XML documents</title>
+
+      <para>Here is synopsis for '<phrase role="PROG"/> fo' command:</para>
+
+      <programlisting>XMLStarlet Toolkit: Format XML document
+Usage: <phrase role="PROG"/> fo [&lt;options&gt;] &lt;xml-file&gt;
+where &lt;options&gt; are
+   -n or --noindent            - do not indent
+   -t or --indent-tab          - indent output with tabulation
+   -s or --indent-spaces &lt;num&gt; - indent output with &lt;num&gt; spaces
+   -o or --omit-decl           - omit xml declaration &lt;?xml version="1.0"?&gt;
+   -R or --recover             - try to recover what is parsable
+   -D or --dropdtd             - remove the DOCTYPE of the input docs
+   -C or --nocdata             - replace cdata section with text nodes
+   -N or --nsclean             - remove redundant namespace declarations
+   -e or --encode &lt;encoding&gt;   - output in the given encoding (utf-8, unicode...)
+   -H or --html                - input is HTML
+   -h or --help                - print help
+
+XMLStarlet is a command line toolkit to query/edit/check/transform
+XML documents (for more information see http://xmlstar.sourceforge.net/)
+</programlisting>
+
+      <para>EXAMPLE</para>
+
+      <programlisting># Format XML document disabling indent
+cat xml/tab-obj.xml | <phrase role="PROG"/> fo --noindent 
+</programlisting>
+
+      <para>Output:</para>
+
+      <programlisting>&lt;xml&gt;
+&lt;table&gt;
+&lt;rec id="1"&gt;
+&lt;numField&gt;123&lt;/numField&gt;
+&lt;stringField&gt;String Value&lt;/stringField&gt;
+&lt;object name="Obj1"&gt;
+&lt;property name="size"&gt;10&lt;/property&gt;
+&lt;property name="type"&gt;Data&lt;/property&gt;
+&lt;/object&gt;
+&lt;/rec&gt;
+&lt;rec id="2"&gt;
+&lt;numField&gt;346&lt;/numField&gt;
+&lt;stringField&gt;Text Value&lt;/stringField&gt;
+&lt;/rec&gt;
+&lt;rec id="3"&gt;
+&lt;numField&gt;-23&lt;/numField&gt;
+&lt;stringField&gt;stringValue&lt;/stringField&gt;
+&lt;/rec&gt;
+&lt;/table&gt;
+&lt;/xml&gt;
+</programlisting>
+
+      <para>EXAMPLE</para>
+
+      <programlisting># Recover malformed XML document
+<phrase role="PROG"/> fo -R xml/malformed.xml 2&gt;/dev/null
+</programlisting>
+
+      <para>Input:</para>
+
+      <programlisting>&lt;test_output&gt;
+   &lt;test_name&gt;foo&lt;/testname&gt;
+   &lt;subtest&gt;...&lt;/subtest&gt;
+&lt;/test_output&gt;
+</programlisting>
+
+      <para>Output:</para>
+
+      <programlisting>&lt;test_output&gt;
+  &lt;test_name&gt;foo&lt;/test_name&gt;
+  &lt;subtest&gt;...&lt;/subtest&gt;
+&lt;/test_output&gt;
+</programlisting>
+    </sect1>
+
+    <sect1>
+      <title>Canonicalization of XML documents</title>
+
+      <para>Here is synopsis for '<phrase role="PROG"/> c14n' command:</para>
+
+      <programlisting>XMLStarlet Toolkit: XML canonicalization
+Usage: <phrase role="PROG"/> c14n &lt;mode&gt; &lt;xml-file&gt; [&lt;xpath-file&gt;] [&lt;inclusive-ns-list&gt;]
+where
+  &lt;xml-file&gt;   - input XML document file name (stdin is used if '-')
+  &lt;xpath-file&gt; - XML file containing XPath expression for
+                 c14n XML canonicalization
+    Example:
+    &lt;?xml version="1.0"?&gt;
+    &lt;XPath xmlns:n0="http://a.example.com" xmlns:n1="http://b.example"&gt;
+    (//. | //@* | //namespace::*)[ancestor-or-self::n1:elem1]
+    &lt;/XPath&gt;
+
+  &lt;inclusive-ns-list&gt; - the list of inclusive namespace prefixes
+                        (only for exclusive canonicalization)
+    Example: 'n1 n2'
+
+  &lt;mode&gt; is one of following:
+  --with-comments         XML file canonicalization w comments (default)
+  --without-comments      XML file canonicalization w/o comments
+  --exc-with-comments     Exclusive XML file canonicalization w comments
+  --exc-without-comments  Exclusive XML file canonicalization w/o comments
+
+XMLStarlet is a command line toolkit to query/edit/check/transform
+XML documents (for more information see http://xmlstar.sourceforge.net/)
+</programlisting>
+
+      <para>EXAMPLE</para>
+
+      <programlisting># XML canonicalization
+<phrase role="PROG"/> c14n --with-comments ../examples/xml/structure.xml ; echo $?
+</programlisting>
+
+      <para>Input ../examples/xml/structure.xml</para>
+
+      <programlisting>&lt;a1&gt;
+  &lt;a11&gt;
+    &lt;a111&gt;
+      &lt;a1111/&gt;
+    &lt;/a111&gt;
+    &lt;a112&gt;
+      &lt;a1121/&gt;
+    &lt;/a112&gt;
+  &lt;/a11&gt;
+  &lt;a12/&gt;
+  &lt;a13&gt;
+    &lt;a131/&gt;
+  &lt;/a13&gt;
+&lt;/a1&gt;</programlisting>
+
+      <para>Output</para>
+
+      <programlisting>&lt;a1&gt;
+  &lt;a11&gt;
+    &lt;a111&gt;
+      &lt;a1111&gt;&lt;/a1111&gt;
+    &lt;/a111&gt;
+    &lt;a112&gt;
+      &lt;a1121&gt;&lt;/a1121&gt;
+    &lt;/a112&gt;
+  &lt;/a11&gt;
+  &lt;a12&gt;&lt;/a12&gt;
+  &lt;a13&gt;
+    &lt;a131&gt;&lt;/a131&gt;
+  &lt;/a13&gt;
+&lt;/a1&gt;
+0
+</programlisting>
+
+      <para>EXAMPLE</para>
+
+      <programlisting># XML exclusive canonicalization
+<phrase role="PROG"/> c14n --exc-with-comments ../examples/xml/c14n.xml ../examples/xml/c14n.xpath
+</programlisting>
+
+      <para>Input</para>
+
+      <programlisting>../examples/xml/c14n.xml
+
+&lt;n0:pdu xmlns:n0='http://a.example.com'&gt;
+&lt;n1:elem1 xmlns:n1='http://b.example'&gt;
+content
+&lt;/n1:elem1&gt;
+&lt;/n0:pdu&gt;
+
+../examples/xml/c14n.xpath
+
+&lt;XPath xmlns:n0="http://a.example.com" xmlns:n1="http://b.example"&gt;
+(//. | //@* | //namespace::*)[ancestor-or-self::n1:elem1]
+&lt;/XPath&gt;
+
+</programlisting>
+
+      <para>Output</para>
+
+      <programlisting>&lt;n1:elem1 xmlns:n1="http://b.example"&gt;
+content
+&lt;/n1:elem1&gt;
+</programlisting>
+    </sect1>
+
+    <sect1>
+      <title>XML and PYX format</title>
+
+      <para>Here is synopsis for '<phrase role="PROG"/> pyx' command:</para>
+
+      <programlisting>XMLStarlet Toolkit: Convert XML into PYX format (based on ESIS - ISO 8879)
+Usage: <phrase role="PROG"/> pyx {&lt;xml-file&gt;}
+where
+   &lt;xml-file&gt; - input XML document file name (stdin is used if missing)
+
+The PYX format is a line-oriented representation of
+XML documents that is derived from the SGML ESIS format.
+(see ESIS - ISO 8879 Element Structure Information Set spec,
+ISO/IEC JTC1/SC18/WG8 N931 (ESIS))
+
+A non-validating, ESIS generating tool originally developed for
+pyxie project (see http://pyxie.sourceforge.net/)
+ESIS Generation by Sean Mc Grath http://www.digitome.com/sean.html
+
+XMLStarlet is a command line toolkit to query/edit/check/transform
+XML documents (for more information see http://xmlstar.sourceforge.net/)
+</programlisting>
+
+      <para>EXAMPLE</para>
+
+      <programlisting><phrase role="PROG"/> pyx input.xml
+</programlisting>
+
+      <para>Input (input.xml)</para>
+
+      <programlisting>&lt;books&gt;
+&lt;book type='hardback'&gt;
+&lt;title&gt;Atlas Shrugged&lt;/title&gt;
+&lt;author&gt;Ayn Rand&lt;/author&gt;
+&lt;isbn id='1'&gt;0525934189&lt;/isbn&gt;
+&lt;/book&gt;
+&lt;/books&gt;</programlisting>
+
+      <para>Output</para>
+
+      <programlisting>(books
+-\n
+(book
+Atype hardback
+-\n
+(title
+-Atlas Shrugged
+)title
+-\n
+(author
+-Ayn Rand
+)author
+-\n
+(isbn
+Aid 1
+-0525934189
+)isbn
+-\n
+)book
+-\n
+)books</programlisting>
+
+      <para>PYX is a line oriented format for XML files which can be helpful
+      (and very efficient) when used in combination with regular line oriented
+      UNIX command such as sed, grep, awk.</para>
+
+      <para>'depyx' option is used for conversion back from PYX into
+      XML.</para>
+
+      <para>EXAMPLE (Delete all attributes). This should work really fast for
+      very large XML documents.</para>
+
+      <programlisting><phrase role="PROG"/> pyx input.xml | grep -v  "^A" | <phrase role="PROG"/> depyx</programlisting>
+
+      <para>Output</para>
+
+      <programlisting>&lt;books&gt;
+&lt;book&gt;
+&lt;title&gt;Atlas Shrugged&lt;/title&gt;
+&lt;author&gt;Ayn Rand&lt;/author&gt;
+&lt;isbn&gt;0525934189&lt;/isbn&gt;
+&lt;/book&gt;
+&lt;/books&gt;</programlisting>
+
+      <para>Here is an article which describes how PYX format can be used to
+      grep XML. <link
+      xlink:href="http://www-106.ibm.com/developerworks/xml/library/x-matters17.html">http://www-106.ibm.com/developerworks/xml/library/x-matters17.html</link></para>
+    </sect1>
+
+    <sect1>
+      <title>Escape/Unescape special XML characters</title>
+
+      <para>Here is synopsis for '<phrase role="PROG"/> esc' command:</para>
+
+      <programlisting><phrase role="PROG"/> esc --help
+XMLStarlet Toolkit: Escape special XML characters
+Usage: <phrase role="PROG"/> esc [&lt;options&gt;] [&lt;string&gt;]
+where &lt;options&gt; are
+   --help      - print usage
+   (TODO: more to be added in future)
+if &lt;string&gt; is missing stdin is used instead.
+
+XMLStarlet is a command line toolkit to query/edit/check/transform
+XML documents (for more information see http://xmlstar.sourceforge.net/)
+</programlisting>
+
+      <para>EXAMPLE</para>
+
+      <programlisting># Escape special XML characters
+cat xml/structure.xml | <phrase role="PROG"/> esc
+</programlisting>
+
+      <para>Input</para>
+
+      <programlisting>&lt;a1&gt;
+  &lt;a11&gt;
+    &lt;a111&gt;
+      &lt;a1111/&gt;
+    &lt;/a111&gt;
+    &lt;a112&gt;
+      &lt;a1121/&gt;
+    &lt;/a112&gt;
+  &lt;/a11&gt;
+  &lt;a12/&gt;
+  &lt;a13&gt;
+    &lt;a131/&gt;
+  &lt;/a13&gt;
+&lt;/a1&gt;</programlisting>
+
+      <para>Output</para>
+
+      <programlisting>&amp;lt;a1&amp;gt;
+  &amp;lt;a11&amp;gt;
+    &amp;lt;a111&amp;gt;
+      &amp;lt;a1111/&amp;gt;
+    &amp;lt;/a111&amp;gt;
+    &amp;lt;a112&amp;gt;
+      &amp;lt;a1121/&amp;gt;
+    &amp;lt;/a112&amp;gt;
+  &amp;lt;/a11&amp;gt;
+  &amp;lt;a12/&amp;gt;
+  &amp;lt;a13&amp;gt;
+    &amp;lt;a131/&amp;gt;
+  &amp;lt;/a13&amp;gt;
+&amp;lt;/a1&amp;gt;
+</programlisting>
+    </sect1>
+
+    <sect1>
+      <title>List directory as XML</title>
+
+      <para>Here is synopsis for '<phrase role="PROG"/> ls' command:</para>
+
+      <programlisting>XMLStarlet Toolkit: List directory as XML
+Usage: <phrase role="PROG"/> ls
+Lists current directory in XML format.
+
+XMLStarlet is a command line toolkit to query/edit/check/transform
+XML documents (for more information see http://xmlstar.sourceforge.net/)
+</programlisting>
+
+      <para>EXAMPLE</para>
+
+      <programlisting><phrase role="PROG"/> ls
+</programlisting>
+
+      <para>Output</para>
+
+      <programlisting>&lt;xml&gt;
+&lt;d p="rwxrwxrwx" a="20050107T050740Z" m="20050107T050740Z" s="0"  n="old-resume"/&gt;
+&lt;f p="rw-rw-rw-" a="20050107T045941Z" m="20050107T045941Z" s="12" n="resume.2old"/&gt;
+&lt;f p="rw-rw-rw-" a="20050107T045924Z" m="20050107T045924Z" s="81" n="resume.xml"/&gt;
+&lt;/xml&gt;
+</programlisting>
+    </sect1>
+  </chapter>
+
+  <chapter>
+    <title xml:id="s.5">Common problems</title>
+
+    <sect1>
+      <title xml:id="s.5.1">Namespaces and default namespace</title>
+
+      <sect2>
+        <title xml:id="s.5.1.1">The Problem: Why does nothing match?</title>
+
+        <para>You try to extract the links from an XHTML document like
+        this:
+
+        <programlisting><phrase role="PROG"/> sel -t -m "//a" -c . -n page.xhtml</programlisting>
+
+        The document contains an <code>&lt;a/&gt;</code> element, but
+        there are no matches.
+
+        <programlisting><![CDATA[<html xmlns="http://www.w3.org/1999/xhtml"><body>
+     <a href="http://example.com">A link</a>
+</body></html>]]></programlisting>
+        </para>
+
+        <para>
+          The problem is the
+          <code>xmlns="http://www.w3.org/1999/xhtml"</code> attribute
+          on the root element, meaning that it, and all elements below
+          have this url as part of their name.
+        </para>
+      </sect2>
+
+      <sect2>
+        <title xml:id="s.5.1.2">The Solution</title>
+        <para>
+          To match namespaced elements you must bind the namespace to
+          a prefix and prepend it to the name:
+          <programlisting><phrase
+          role="PROG"/> sel -N x="http://www.w3.org/1999/xhtml" -t -m "//x:a" -c . -n page.xhtml</programlisting>
+        </para>
+      </sect2>
+
+      <sect2>
+        <title xml:id="s.5.1.3">A More Convenient Solution</title>
+        <para>
+          XML documents can also use different namespace prefixes, on
+          any element in the document. In order to handle namespaces
+          with greater ease, XMLStarlet (versions 1.2.1+) will use the
+          namespace prefixes declared on the root element of the input
+          document. The default namespace will be bound to the
+          prefixes "_" and "DEFAULT" (in versions 1.5.0+). So another
+          way to solve handle the previous example would be:
+
+          <programlisting><phrase
+          role="PROG"/> sel -t -m "//_:a" -c . -n page.xhtml</programlisting>
+        </para>
+
+        <para>
+          This feature can be disabled (versions 1.6.0+) by the global
+          <code>--no-doc-namespace</code> option. When should you
+          disable it? Suppose you are writing a script that handles
+          XML documents that look like this:
+
+          <programlisting><![CDATA[<data xmlns:a="http://example.com">
+  <a:important-data>...</a:important-data>
+</data>]]>
+          </programlisting>
+          and also this:
+          <programlisting><![CDATA[<data xmlns:b="http://example.com">
+  <b:important-data>...</b:important-data>
+</data>]]>
+          </programlisting>
+          Since both documents use the same namespace they are
+          equivalent, even though the prefixes happen to be different.
+          By using <code>--no-doc-namespace</code> and binding the
+          namespace with -N, you can be sure that XMLStarlet's
+          behaviour will be independant of the input document.
+        </para>
+      </sect2>
+
+      <sect2>
+        <title>Deleting namespace declarations </title>
+
+        <para>Delete namespace declarations and all elements from non default
+        namespace from the following XML document:</para>
+
+        <para>Input (file ns2.xml)<programlisting>&lt;doc xmlns="http://www.a.com/xyz" xmlns:ns="http://www.c.com/xyz"&gt;
+  &lt;A&gt;test&lt;/A&gt;
+  &lt;B&gt;
+    &lt;ns:C&gt;xyz&lt;/ns:C&gt;
+  &lt;/B&gt;
+&lt;/doc&gt;
+        </programlisting></para>
+
+        <para>Command:<programlisting><phrase role="PROG"/> ed -N N="http://www.c.com/xyz" -d '//N:*' ns2.xml | \
+        sed -e 's/ xmlns.*=".*"//g'</programlisting></para>
+
+        <para>Output<programlisting>&lt;doc&gt;
+  &lt;A&gt;test&lt;/A&gt;
+  &lt;B/&gt;
+&lt;/doc&gt;
+        </programlisting></para>
+      </sect2>
+    </sect1>
+
+    <sect1>
+      <title xml:id="s.5.2">Special characters</title>
+
+      <para>Sometimes issues appear with handling of special characters, where
+      'special' means in XML sence as well as in 'shell' terms. Examples below
+      should clear at least some of the confusions.</para>
+
+      <para>You should not forget about the fact that your command lines are
+      executed by shell and shell does substitutions of its special characters
+      too. So for example, one may ask:</para>
+
+      <para>"Why does the following query return nothing?"
+      <programlisting>echo '&lt;X name="foo"&gt;EEE&lt;/X&gt;' | <phrase role="PROG"/> sel -t -m /X[@name='foo'] -v .</programlisting></para>
+
+      <para>The answer lies in the way shell substitues 'foo', which simply
+      becomes foo before the command is run. So the correct way to write that
+      would be</para>
+
+      <para><programlisting>echo '&lt;X name="foo"&gt;EEE&lt;/X&gt;' | <phrase role="PROG"/> sel -t -m "/X[@name='foo']" -v .</programlisting></para>
+
+      <para>Another example involves XML special characters. Question: How to
+      search for &amp;apos; in text nodes?</para>
+
+      <para>The following should help<programlisting><phrase role="PROG"/> sel -t -m "//line[contains(text(),&amp;quot;'&amp;quot;)]" -c .
+</programlisting></para>
+    </sect1>
+
+    <sect1>
+      <title xml:id="s.5.3">Sorting</title>
+
+      <para>Let's take a look at XSLT produced by the following '<phrase role="PROG"/> sel'
+      command:</para>
+
+      <para><programlisting># Query XML document and produce sorted text table
+<phrase role="PROG"/> sel -T -t -m /xml/table/rec -s D:N:- "@id" \
+   -v "concat(@id,'|',numField,'|',stringField)" -n xml/table.xml
+</programlisting></para>
+
+      <para><programlisting>&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+&lt;xsl:output omit-xml-declaration="yes" indent="no" method="text"/&gt;
+&lt;xsl:param name="inputFile"&gt;-&lt;/xsl:param&gt;
+&lt;xsl:template match="/"&gt;
+  &lt;xsl:call-template name="t1"/&gt;
+&lt;/xsl:template&gt;
+&lt;xsl:template name="t1"&gt;
+  &lt;xsl:for-each select="/xml/table/rec"&gt;
+    &lt;xsl:sort order="descending" data-type="number" 
+      case-order="upper-first" select="@id"/&gt;
+    &lt;xsl:value-of select="concat(@id,'|',numField,'|',stringField)"/&gt;
+    &lt;xsl:value-of select="'&amp;#10;'"/&gt;
+  &lt;/xsl:for-each&gt;
+&lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;
+</programlisting></para>
+
+      <para>-s option of '<phrase role="PROG"/> sel' command controls 'order', 'data-type', and
+      'case-order' attributes of &lt;xsl:sort/&gt; element .</para>
+    </sect1>
+
+    <sect1>
+      <title xml:id="s.5.4">Validation</title>
+
+      <para>Many questions are asked about XSD (XML schema) validation. Well,
+      XmlStarlet relies on libxml2 which has incomplete support for XML
+      schemas. Untill it is done in libxml2 it will not be in
+      XmlStarlet.</para>
+
+      <para></para>
+
+      <para></para>
+    </sect1>
+  </chapter>
+
+  <chapter>
+    <title>Other XmlStarlet Resources</title>
+
+    <para>Here are few articles on the Internet.</para>
+
+    <itemizedlist>
+      <listitem>
+        <para><link
+        xlink:href="http://www.freesoftwaremagazine.com/free_issues/issue_06/xml_starlet/">XMLStarlet:
+        a Unix toolkit for XML</link></para>
+      </listitem>
+
+      <listitem>
+        <para><link
+        xlink:href="http://www-128.ibm.com/developerworks/xml/library/x-starlet.html">Start
+        working with XMLStarlet</link></para>
+      </listitem>
+
+      <listitem>
+        <para><link
+        xlink:href="http://blogicblog.blogspot.com/2004/09/xmlstarlet-gentle-introduction-into.html">XMLStarlet:
+        A gentle introduction into XSLT </link></para>
+      </listitem>
+
+      <listitem>
+        <para><link
+        xlink:href="http://blogs.applibase.net/pramod/index.php/archives/command-line-xml-with-xmlstarlet ">Command
+        line XML with XMLStarlet </link></para>
+      </listitem>
+
+      <listitem>
+        <para><link
+        xlink:href="http://www.pinkjuice.com/howto/vimxml/moresetup.xml#xmlstarlet">Using
+        vi as XML editor</link></para>
+      </listitem>
+    </itemizedlist>
+  </chapter>
+</book>

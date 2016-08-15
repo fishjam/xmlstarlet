@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="xml">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="table">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="rec" maxOccurs="unbounded">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="numField" type="xsd:int"/>
+                    <xsd:element name="stringField" type="xsd:string"/>
+                  </xsd:sequence>
+                  <xsd:attribute name="id" type="xsd:NMTOKEN" use="required"/>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

@@ -1,0 +1,5 @@
+XMLStarlet Toolkit: List directory as XML
+Usage: PROG ls [ <dir> | --help ]
+Lists current directory in XML format.
+Time is shown per ISO 8601 spec.
+

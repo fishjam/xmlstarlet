@@ -1,0 +1,26 @@
+XMLStarlet Toolkit: Command line utilities for XML
+Usage: PROG [<options>] <command> [<cmd-options>]
+where <command> is one of:
+  ed    (or edit)      - Edit/Update XML document(s)
+  sel   (or select)    - Select data or query XML document(s) (XPATH, etc)
+  tr    (or transform) - Transform XML document(s) using XSLT
+  val   (or validate)  - Validate XML document(s) (well-formed/DTD/XSD/RelaxNG)
+  fo    (or format)    - Format XML document(s)
+  el    (or elements)  - Display element structure of XML document
+  c14n  (or canonic)   - XML canonicalization
+  ls    (or list)      - List directory as XML
+  esc   (or escape)    - Escape special XML characters
+  unesc (or unescape)  - Unescape special XML characters
+  pyx   (or xmln)      - Convert XML into PYX format (based on ESIS - ISO 8879)
+  p2x   (or depyx)     - Convert PYX into XML
+<options> are:
+  -q or --quiet        - no error output
+  --doc-namespace      - extract namespace bindings from input doc (default)
+  --no-doc-namespace   - don't extract namespace bindings from input doc
+  --version            - show version
+  --help               - show help
+Wherever file name mentioned in command help it is assumed
+that URL can be used instead as well.
+
+Type: PROG <command> --help <ENTER> for command help
+

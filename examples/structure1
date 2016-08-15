@@ -1,0 +1,5 @@
+#!/bin/sh
+# Print structure of XML element using xml sel (advanced XPath expressions and xml sel command usage)
+./xmlstarlet sel -T -t -m '//*' \
+-m 'ancestor-or-self::*' -v 'name()' -i 'not(position()=last())' -o . -b -b -n \
+xml/structure.xml

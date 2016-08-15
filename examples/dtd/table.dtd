@@ -1,0 +1,11 @@
+<!ELEMENT numField ( #PCDATA ) >
+
+<!ELEMENT rec ( numField, stringField ) >
+<!ATTLIST rec id NMTOKEN #REQUIRED >
+
+<!ELEMENT stringField ( #PCDATA ) >
+
+<!ELEMENT table ( rec+ ) >
+
+<!ELEMENT xml ( table ) >
+

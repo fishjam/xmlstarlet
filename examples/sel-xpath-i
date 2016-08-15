@@ -1,0 +1,6 @@
+#!/bin/sh
+the_test() {
+    ./xmlstarlet sel --text -t -i "$1" -v "$1" --nl xml/foo.xml
+}
+
+. "${srcdir-..}"/examples/foreach-xpath.sh

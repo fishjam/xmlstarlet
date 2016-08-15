@@ -1,0 +1,2 @@
+#!/bin/sh
+./xmlstarlet sel -T -t -v //@id xml/table.xml

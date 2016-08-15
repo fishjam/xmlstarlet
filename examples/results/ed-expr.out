@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<xml>
+  <table>
+    <rec id="2">
+      <numField>123</numField>
+      <stringField>String Value</stringField>
+    </rec>
+    <rec id="3">
+      <numField>346</numField>
+      <stringField>Text Value</stringField>
+    </rec>
+    <rec id="4">
+      <numField>-23</numField>
+      <stringField>stringValue</stringField>
+    </rec>
+  </table>
+  <highest-record>
+    <rec id="3">
+      <numField>346</numField>
+      <stringField>Text Value</stringField>
+    </rec>
+  </highest-record>
+</xml>

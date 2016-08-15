@@ -1,0 +1,2 @@
+#!/bin/sh
+./xmlstarlet ed -m '/xml/table/rec[@id=1]/@id' '/xml/table' xml/table.xml

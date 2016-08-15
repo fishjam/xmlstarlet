@@ -1,0 +1,7 @@
+#!/bin/sh
+. ./bigxml
+xmldoc '<a>foo</a>' '<!DOCTYPE root SYSTEM "dtd/bigxml.dtd">' \
+    | ./xmlstarlet val --embed --err - 2>&1 >/dev/null \
+    | ${SED:-sed} -n "$SEDLINUM_PROG" \
+    | head -n 1 # a bug in libxml 2.9.0 causes extra errors to be
+                # printed, so we take just the first

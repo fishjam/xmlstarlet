@@ -1,0 +1,5 @@
+#!/bin/sh
+echo '<x/>' | ./xmlstarlet sel --root -t -c / | ./xmlstarlet c14n
+echo
+echo '<x/>' | ./xmlstarlet sel --root -t -c / -t -c / | ./xmlstarlet c14n
+echo

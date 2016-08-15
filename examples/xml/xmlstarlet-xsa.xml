@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE xsa PUBLIC "-//LM Garshol//DTD XML Software Autoupdate 1.0//EN//XML" 
+                     "http://www.garshol.priv.no/download/xsa/xsa.dtd">
+
+<xsa>
+  <vendor>
+    <name>Mikhail Grushinskiy</name>
+    <email>mgrouch@users.sourceforge.net</email>
+    <url>http://xmlstar.sourceforge.net/</url>
+  </vendor>
+
+  <product id="xmlstarlet">
+    <name>xmlstarlet</name>
+    <version>0.3.0</version>
+    <last-release>20030528</last-release>
+    <info-url>http://xmlstar.sourceforge.net/</info-url>
+    <changes>
+Changes since 0.2.0 
+1. Many improvements to 'edit' option 
+2. Improvements for namespaces support in 'select' option 
+3. Fixes for 'ls' option 
+4. New binaries for Solaris8-sparc/RedHat-7.3/Mandrake-9.1/ 
+5. Documentation and web site updates 
+6. Improved build scripts and make files 
+7. Additional examples and tests 
+    </changes>
+  </product>
+</xsa>

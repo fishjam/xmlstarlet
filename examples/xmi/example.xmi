@@ -1,0 +1,8 @@
+<xmi:XMI version="2.0" xmlns:UML=" http://schema.omg.org/spec/UML/1.4" 
+xmlns:xmi=" http://schema.omg.org/spec/XMI/2.0">
+<xmi:Metamodel name="UML" version="1.4" href="UML.xml"/>
+<xmi:Model name="example" version="1" href="example.xml"/>
+<UML:Class name="C1">
+<feature xmi:type="UML:Attribute" name="a1" visibility="private"/>
+</UML:Class>
+</xmi:XMI>

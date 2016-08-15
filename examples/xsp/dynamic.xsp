@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<?cocoon-process type="xsp"?>
+<?cocoon-process type="xslt"?>
+<?xml-stylesheet href="sample.xsl" type="text/xsl"?>
+
+<xsp:page language="java" xmlns:xsp="http://www.apache.org/1999/XSP/Core">
+  <page title="Time of Day">
+  
+    <xsp:logic>
+      // Define a variable to hold the time of day
+      Date now = new Date();
+    </xsp:logic>
+  
+    <p>
+      To the best of my knowledge, it's now
+      <!-- Substitute time of day here -->
+      <xsp:expr>now</xsp:expr>
+    </p>
+  </page>
+</xsp:page>

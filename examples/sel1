@@ -1,0 +1,3 @@
+#!/bin/sh
+# xsl:copy-of in xml sel command
+./xmlstarlet sel -B -t -e ROOT -m /xml/table/rec -c . -n xml/table.xml | ./xmlstarlet c14n

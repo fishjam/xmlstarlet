@@ -1,0 +1,3 @@
+#!/bin/sh
+# Count elements matching XPath expression
+./xmlstarlet sel -T -t -v "count(/xml/table/rec/numField)" xml/table.xml

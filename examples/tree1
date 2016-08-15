@@ -1,0 +1,4 @@
+#!/bin/sh
+# Print subtree of elements having given element as a descendant (advanced XPath)
+./xmlstarlet ed -d '//node()[not(descendant-or-self::isbn or parent::isbn)] | //*[parent::isbn]' xml/books.xml
+

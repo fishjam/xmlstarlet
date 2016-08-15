@@ -1,0 +1,3 @@
+#!/bin/sh
+# make sure we don't look for embedded dtd if not asked
+./xmlstarlet val --dtd dtd/table.dtd xml/table.xml

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="Windows-1252" ?>
+<XML_DIZ_INFO>
+<MASTER_PAD_VERSION_INFO>
+    <MASTER_PAD_VERSION>1.15</MASTER_PAD_VERSION>
+    <MASTER_PAD_INFO>Portable Application Description, or PAD for short, is a data set that is used by shareware authors to disseminate information to anyone interested in their software products. To find out more go to http://www.asp-shareware.org/pad</MASTER_PAD_INFO>
+</MASTER_PAD_VERSION_INFO>
+<Company_Info>
+        <Company_Name>Mikhail Grushinskiy</Company_Name>
+        <Address_1 />
+        <Address_2 />
+        <City_Town />
+        <State_Province />
+        <Zip_Postal_Code />
+        <Country />
+        <Company_WebSite_URL>http://sourceforge.net/projects/xmlstar/</Company_WebSite_URL>
+<Contact_Info>
+        <Author_First_Name>Mikhail</Author_First_Name>
+        <Author_Last_Name>Grushinskiy</Author_Last_Name>
+        <Author_Email>mgrouch@users.sourceforge.net</Author_Email>
+        <Contact_First_Name />
+        <Contact_Last_Name />
+        <Contact_Email />
+    </Contact_Info>
+<Support_Info>
+        <Sales_Email />
+        <Support_Email />
+        <General_Email>mgrouch@users.sourceforge.net</General_Email>
+        <Sales_Phone />
+        <Support_Phone />
+        <General_Phone />
+        <Fax_Phone />
+    </Support_Info>
+</Company_Info>
+<Program_Info>
+        <Program_Name>xmlstarlet</Program_Name>
+        <Program_Version>0.3.0</Program_Version>
+        <Program_Release_Month>05</Program_Release_Month>
+        <Program_Release_Day>28</Program_Release_Day>
+        <Program_Release_Year>2003</Program_Release_Year>
+        <Program_Cost_Dollars />
+        <Program_Cost_Other_Code />
+        <Program_Cost_Other />
+        <Program_Type>Freeware</Program_Type>
+        <Program_Release_Status>Major Update</Program_Release_Status>
+        <Program_Install_Support>Install and Uninstall</Program_Install_Support>
+        <Program_OS_Support>Unix,Linux</Program_OS_Support>
+        <Program_Language>English</Program_Language>
+<File_Info>
+        <Filename_Versioned>xmlstarlet-0.3.0.tar.gz</Filename_Versioned>
+        <Filename_Previous />
+        <Filename_Generic />
+        <Filename_Long />
+        <File_Size_Bytes>155073</File_Size_Bytes>
+        <File_Size_K>151</File_Size_K>
+        <File_Size_MB>0.15</File_Size_MB>
+    </File_Info>
+<Expire_Info>
+        <Has_Expire_Info>N</Has_Expire_Info>
+        <Expire_Count />
+        <Expire_Based_On>Days</Expire_Based_On>
+        <Expire_Other_Info />
+        <Expire_Month />
+        <Expire_Day />
+        <Expire_Year />
+    </Expire_Info>
+        <Program_Change_Info />
+        <Program_Specific_Category>Utilities</Program_Specific_Category>
+        <Program_Categories>Development Tools</Program_Categories>
+        <Program_System_Requirements>POSIX UNIX</Program_System_Requirements>
+        <Includes_JAVA_VM>N</Includes_JAVA_VM>
+        <Includes_VB_Runtime>N</Includes_VB_Runtime>
+        <Includes_DirectX>N</Includes_DirectX>
+</Program_Info>
+<Program_Descriptions>
+<English>
+        <Keywords>xmlstarlet XML command line processing tool utility toolkit XSLT XSD RelaxNG validate query transform edit modify shell UNIX grep diff sed pyx</Keywords>
+        <Char_Desc_45>XMLStarlet Command Line XML Toolkit</Char_Desc_45>
+        <Char_Desc_80>XMLStarlet Command Line XML Toolkit</Char_Desc_80>
+        <Char_Desc_250>XMLStarlet is a set of command line utilities (tools) to transform, query, validate, and edit XML documents and files using simple set of shell commands in similar way it is done for plain text files using UNIX grep, sed, awk, diff, patch, join, etc</Char_Desc_250>
+        <Char_Desc_450>XMLStarlet is a set of command line utilities (tools) to transform, query, validate, and edit XML documents and files using simple set of shell commands in similar way it is done for plain text files using UNIX grep, sed, awk, diff, patch, join, etc commands. 
+
+This set of command line utilities can be used by those who deal with many XML documents on UNIX shell command prompt as well as for automated XML processing with shell scripts.</Char_Desc_450>
+        <Char_Desc_2000>XMLStarlet is a set of command line utilities (tools) to transform, query, validate, and edit XML documents and files using simple set of shell commands in similar way it is done for plain text files using UNIX grep, sed, awk, diff, patch, join, etc commands. 
+
+This set of command line utilities can be used by those who deal with many XML documents on UNIX shell command prompt as well as for automated XML processing with shell scripts. 
+
+The toolkit's feature set includes options to: 
+
+Check or validate XML files (simple well-formedness check, DTD, XSD, RelaxNG) 
+
+Calculate values of XPath expressions on XML files (such as running sums, etc) 
+
+Search XML files for matches to given XPath expressions 
+
+Apply XSLT stylesheets to XML documents (including EXSLT support, and passing parameters to stylesheets) 
+
+Query XML documents (ex. query for value of some elements of attributes, sorting, etc) 
+
+Modify or edit XML documents (ex. delete some elements) 
+
+Format or &quot;beautify&quot; XML documents (as changing indentation, etc) 
+
+Fetch XML documents using http:// or ftp:// URLs 
+
+Browse tree structure of XML documents (in similar way to 'ls' command for directories) 
+
+Include one XML document into another using XInclude 
+
+XML c14n canonicalization 
+
+Escape/unescape special XML characters in input text 
+
+Display directories in XML format 
+
+XMLStarlet is open source freeware under MIT license which allows free use and distribution for both commercial and non-commercial projects. 
+
+We welcome any user's feedback on this project which would greatly help us to improve its quality. Comments, suggestions, feature requests, bug reports can be done via SourceForge project web site (see XMLStarlet Sourceforge forums at http://sourceforge.net/forum/?group_id=66612, or XMLStarlet mailing list at http://lists.sourceforge.net/lists/listinfo/xmlstar-devel)</Char_Desc_2000>
+</English>
+</Program_Descriptions>
+<Web_Info>
+<Application_URLs>
+        <Application_Info_URL>http://xmlstar.sourceforge.net/</Application_Info_URL>
+        <Application_Order_URL>http://xmlstar.sourceforge.net/download.php</Application_Order_URL>
+        <Application_Screenshot_URL />
+        <Application_Icon_URL>http://xmlstar.sourceforge.net/img/xmlstarlet.png</Application_Icon_URL>
+        <Application_XML_File_URL />
+    </Application_URLs>
+<Download_URLs>
+        <Primary_Download_URL>http://xmlstar.sourceforge.net/download.php</Primary_Download_URL>
+        <Secondary_Download_URL>http://sourceforge.net/project/showfiles.php?group_id=66612</Secondary_Download_URL>
+        <Additional_Download_URL_1 />
+        <Additional_Download_URL_2 />
+    </Download_URLs>
+</Web_Info>
+<Permissions>
+        <Distribution_Permissions>Copyright (c) 2002,2003 Mikhail Grushinskiy.  All Rights Reserved.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.</Distribution_Permissions>
+        <EULA />
+</Permissions>
+</XML_DIZ_INFO>

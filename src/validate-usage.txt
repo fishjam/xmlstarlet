@@ -1,0 +1,24 @@
+XMLStarlet Toolkit: Validate XML document(s)
+Usage: PROG val <options> [ <xml-file-or-uri> ... ]
+where <options>
+  -w or --well-formed        - validate well-formedness only (default)
+  -d or --dtd <dtd-file>     - validate against DTD
+  --net                      - allow network access
+#ifdef LIBXML_SCHEMAS_ENABLED
+  -s or --xsd <xsd-file>     - validate against XSD schema
+  -E or --embed              - validate using embedded DTD
+#endif
+#ifdef LIBXML_SCHEMAS_ENABLED
+  -r or --relaxng <rng-file> - validate against Relax-NG schema
+#endif
+  -e or --err                - print verbose error messages on stderr
+  -S or --stop               - stop on first error
+  -b or --list-bad           - list only files which do not validate
+  -g or --list-good          - list only files which validate
+  -q or --quiet              - do not list files (return result code only)
+
+#ifdef LIBXML_SCHEMAS_ENABLED
+NOTE: XML Schemas are not fully supported yet due to its incomplete
+      support in libxml2 (see http://xmlsoft.org)
+
+#endif

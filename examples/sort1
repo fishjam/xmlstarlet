@@ -1,0 +1,3 @@
+#!/bin/sh
+# Query XML document and produce sorted text table
+./xmlstarlet sel -T -t -m /xml/table/rec -s D:N:- "@id" -v "concat(@id,'|',numField,'|',stringField)" -n xml/table.xml

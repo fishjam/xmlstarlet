@@ -1,0 +1,4 @@
+#!/bin/sh
+# Sort on two fields
+./xmlstarlet sel -T -t -m /root/elem -s A:N:U @rank -s A:T:U @name -v @name -n xml/unsorted.xml
+

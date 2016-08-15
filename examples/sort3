@@ -1,0 +1,4 @@
+#!/bin/sh
+# lower case first
+./xmlstarlet sel -T -t -m /root/elem -s A:T:L @name -v @name -n xml/unsorted.xml
+

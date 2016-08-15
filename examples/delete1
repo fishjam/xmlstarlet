@@ -1,0 +1,3 @@
+#!/bin/sh
+# Delete elements matching XPath expression
+./xmlstarlet ed -d '/xml/table/rec[@id="2"]' xml/table.xml

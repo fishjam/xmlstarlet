@@ -1,0 +1,3 @@
+#!/bin/sh
+# Generate plain text table from XML document
+./xmlstarlet sel -T -t -m /xml/table/rec -v "concat(@id,'|',numField,'|',stringField)" -n xml/table.xml

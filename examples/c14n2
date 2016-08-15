@@ -1,0 +1,3 @@
+#!/bin/sh
+# XML exclusive canonicalization
+./xmlstarlet c14n --exc-with-comments ../examples/xml/c14n.xml ../examples/xml/c14n.xpath

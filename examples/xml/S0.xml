@@ -1,0 +1,4 @@
+<doc xmlns="http://www.foo.com/namespaces/my"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<el/>
+</doc>

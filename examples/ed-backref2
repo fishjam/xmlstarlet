@@ -1,0 +1,7 @@
+#!/bin/sh
+./xmlstarlet ed \
+    -s /xml/table/rec -t elem -n new-field -v new-value \
+    --var new-field '$prev' \
+    -i '$new-field' -t attr -n new-attr -v new-attr-value \
+    -s '$new-field' -t elem -n new-subelem -v '' \
+    xml/table.xml | ./xmlstarlet c14n

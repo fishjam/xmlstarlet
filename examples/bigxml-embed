@@ -1,0 +1,6 @@
+#!/bin/sh
+. ./bigxml
+xmldoc '<a> foo </a>' \
+       '<!DOCTYPE root [<!ELEMENT root (a*)> <!ELEMENT a EMPTY>]>' \
+    | ./xmlstarlet val --embed --err - \
+    2>&1 >/dev/null | ${SED:-sed} -n "$SEDLINUM_PROG"

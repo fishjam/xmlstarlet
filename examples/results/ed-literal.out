@@ -1,0 +1,3 @@
+<?xml version="1.0"?>
+<!DOCTYPE doc SYSTEM "foo.dtd">
+<doc>"&lt;&gt;&amp; &amp;quot; &amp;amp; &amp;lt; &amp;gt;</doc>

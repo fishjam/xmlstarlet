@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<books>
+<begin/>
+<book type='hardback'>
+<title>Atlas Shrugged</title>
+<author>Ayn Rand</author>
+<isbn id='1'>0525934189<br/></isbn>
+</book>
+Next Book
+<book type='paperback'>
+<title>A Burnt-Out Case</title>
+<author>Graham Greene</author>
+<isbn id="2">0140185399<br/></isbn>
+</book>
+</books>

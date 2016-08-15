@@ -1,0 +1,41 @@
+<!DOCTYPE book
+  PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+  "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<book>
+
+ <bookinfo>
+  <title>DocBook document example</title>
+  <author>
+   <firstname>Mikhail</firstname>
+   <surname>Grushinskiy</surname>
+  </author>
+
+  <copyright>
+   <year>2002</year>
+   <holder>Mikhail Grushinskiy</holder>
+  </copyright>
+ </bookinfo>
+
+ <preface>
+  <title>Sample document</title>
+
+  <para>A simple DocBook example document.</para>
+ </preface>
+
+ <chapter>
+  <title>XMLStarlet Example</title>
+
+  <para>The <emphasis>XMLStarlet</emphasis> command line toolkit
+  allows querying/checking/editing/transforming/formatting XML documents
+  from command line</para>
+
+  <para>To find out more on how to use the
+  <emphasis>XMLStarlet</emphasis> for XML processing, point
+  your browser to <ulink
+  url="http://xmlstar.sourceforge.net/">http://xmlstar.sourceforge.net/</ulink>.
+  </para>
+
+ </chapter>
+
+</book>
+

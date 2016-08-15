@@ -1,0 +1,77 @@
+XMLStarlet Toolkit: Select from XML document(s)
+Usage: PROG sel <global-options> {<template>} [ <xml-file> ... ]
+where
+  <global-options> - global options for selecting
+  <xml-file> - input XML document file name/uri (stdin is used if missing)
+  <template> - template for querying XML document with following syntax:
+
+<global-options> are:
+  -Q or --quiet             - do not write anything to standard output.
+  -C or --comp              - display generated XSLT
+  -R or --root              - print root element <xsl-select>
+  -T or --text              - output is text (default is XML)
+  -I or --indent            - indent output
+  -D or --xml-decl          - do not omit xml declaration line
+  -B or --noblanks          - remove insignificant spaces from XML tree
+  -E or --encode <encoding> - output in the given encoding (utf-8, unicode...)
+  -N <name>=<value>         - predefine namespaces (name without 'xmlns:')
+                              ex: xsql=urn:oracle-xsql
+                              Multiple -N options are allowed.
+  --net                     - allow fetch DTDs or entities over network
+  --help                    - display help
+
+Syntax for templates: -t|--template <options>
+where <options>
+  -c or --copy-of <xpath>   - print copy of XPATH expression
+  -v or --value-of <xpath>  - print value of XPATH expression
+  -o or --output <string>   - output string literal
+  -n or --nl                - print new line
+  -f or --inp-name          - print input file name (or URL)
+  -m or --match <xpath>     - match XPATH expression
+  --var <name> <value> --break or
+  --var <name>=<value>      - declare a variable (referenced by $name)
+  -i or --if <test-xpath>   - check condition <xsl:if test="test-xpath">
+  --elif <test-xpath>       - check condition if previous conditions failed
+  --else                    - check if previous conditions failed
+  -e or --elem <name>       - print out element <xsl:element name="name">
+  -a or --attr <name>       - add attribute <xsl:attribute name="name">
+  -b or --break             - break nesting
+  -s or --sort op xpath     - sort in order (used after -m) where
+  op is X:Y:Z, 
+      X is A - for order="ascending"
+      X is D - for order="descending"
+      Y is N - for data-type="numeric"
+      Y is T - for data-type="text"
+      Z is U - for case-order="upper-first"
+      Z is L - for case-order="lower-first"
+
+There can be multiple --match, --copy-of, --value-of, etc options
+in a single template. The effect of applying command line templates
+can be illustrated with the following XSLT analogue
+
+PROG sel -t -c "xpath0" -m "xpath1" -m "xpath2" -v "xpath3" \
+        -t -m "xpath4" -c "xpath5"
+
+is equivalent to applying the following XSLT
+
+<?xml version="1.0"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:template match="/">
+  <xsl:call-template name="t1"/>
+  <xsl:call-template name="t2"/>
+</xsl:template>
+<xsl:template name="t1">
+  <xsl:copy-of select="xpath0"/>
+  <xsl:for-each select="xpath1">
+    <xsl:for-each select="xpath2">
+      <xsl:value-of select="xpath3"/>
+    </xsl:for-each>
+  </xsl:for-each>
+</xsl:template>
+<xsl:template name="t2">
+  <xsl:for-each select="xpath4">
+    <xsl:copy-of select="xpath5"/>
+  </xsl:for-each>
+</xsl:template>
+</xsl:stylesheet>
+

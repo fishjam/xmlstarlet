@@ -1,0 +1,2 @@
+#!/bin/sh
+./xmlstarlet ed -s '/xml/table/rec[@id=1]' -t elem -n newrec -v value xml/table.xml

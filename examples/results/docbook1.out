@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+  <head>
+    <meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type"/>
+    <title>DocBook document example</title>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.48"/>
+  </head>
+  <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+    <div class="book">
+      <div class="titlepage">
+        <div>
+          <h1 class="title"><a name="id2765244"/>DocBook document example</h1>
+        </div>
+        <div>
+          <h3 class="author">Mikhail Grushinskiy</h3>
+        </div>
+        <div>
+          <p class="copyright">Copyright © 2002 Mikhail Grushinskiy</p>
+        </div>
+        <hr/>
+      </div>
+      <div class="toc">
+        <p>
+          <b>Table of Contents</b>
+        </p>
+        <dl>
+          <dt>
+            <a href="#id2765482">Sample document</a>
+          </dt>
+          <dt>1. <a href="#id2767329">XMLStarlet Example</a></dt>
+        </dl>
+      </div>
+      <div class="preface">
+        <div class="titlepage">
+          <div>
+            <h2 class="title"><a name="id2765482"/>Sample document</h2>
+          </div>
+        </div>
+        <p>A simple DocBook example document.</p>
+      </div>
+      <div class="chapter">
+        <div class="titlepage">
+          <div>
+            <h2 class="title"><a name="id2767329"/>Chapter 1. XMLStarlet Example</h2>
+          </div>
+        </div>
+        <p>The <span class="emphasis"><i>XMLStarlet</i></span> command line toolkit
+  allows querying/checking/editing/transforming/formatting XML documents
+  from command line</p>
+        <p>To find out more on how to use the
+  <span class="emphasis"><i>XMLStarlet</i></span> for XML processing, point
+  your browser to <a href="http://xmlstar.sourceforge.net/" target="_top">http://xmlstar.sourceforge.net/</a>.
+  </p>
+      </div>
+    </div>
+  </body>
+</html>

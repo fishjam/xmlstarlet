@@ -1,0 +1,13 @@
+# $Id: pkginfo.in,v 1.1 2003/05/10 23:21:06 mgrouch Exp $
+
+PKG=SFxmlstar
+NAME="xmlstarlet Command Line XML Toolkit"
+ARCH=sparc
+VERSION=@VERSION@
+MAXINST=1
+CATEGORY=application
+DESC="XmlStarlet Command Line XML Toolkit"
+CLASSES=none
+VENDOR="http://xmlstar.sourceforge.net/"
+BASEDIR=/usr/local
+

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<xml>
+  <table>
+    <rec id="1">
+      <numField>123</numField>
+      <stringField>String Value</stringField>
+    </rec>
+    <newrec>value</newrec>
+  </table>
+</xml>

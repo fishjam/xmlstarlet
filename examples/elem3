@@ -1,0 +1,3 @@
+#!/bin/sh
+# Display element structure of XML document (including attribute values)
+./xmlstarlet el -v ./xml/tab-obj.xml

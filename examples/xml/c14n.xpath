@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<XPath xmlns:n0="http://a.example.com" xmlns:n1="http://b.example">
+(//. | //@* | //namespace::*)[ancestor-or-self::n1:elem1]
+</XPath>

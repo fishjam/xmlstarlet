@@ -1,0 +1,4 @@
+#!/bin/sh
+# libxml2 returns a NULL nodeset instead of an empty nodeset for this
+# xpath expression
+./xmlstarlet ed -S -N n=nn -d /n:doc/foo xml/foo.xml

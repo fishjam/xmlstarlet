@@ -1,0 +1,22 @@
+XMLStarlet Toolkit: XML canonicalization
+Usage: PROG c14n [--net] <mode> <xml-file> [<xpath-file>] [<inclusive-ns-list>]
+where
+  <xml-file>   - input XML document file name (stdin is used if '-')
+  <xpath-file> - XML file containing XPath expression for
+                 c14n XML canonicalization
+    Example:
+    <?xml version="1.0"?>
+    <XPath xmlns:n0="http://a.example.com" xmlns:n1="http://b.example">
+    (//. | //@* | //namespace::*)[ancestor-or-self::n1:elem1]
+    </XPath>
+
+  <inclusive-ns-list> - the list of inclusive namespace prefixes
+                        (only for exclusive canonicalization)
+    Example: 'n1 n2'
+
+  <mode> is one of following:
+  --with-comments         XML file canonicalization w comments (default)
+  --without-comments      XML file canonicalization w/o comments
+  --exc-with-comments     Exclusive XML file canonicalization w comments
+  --exc-without-comments  Exclusive XML file canonicalization w/o comments
+

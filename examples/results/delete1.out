@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<xml>
+  <table>
+    <rec id="1">
+      <numField>123</numField>
+      <stringField>String Value</stringField>
+    </rec>
+    <rec id="3">
+      <numField>-23</numField>
+      <stringField>stringValue</stringField>
+    </rec>
+  </table>
+</xml>

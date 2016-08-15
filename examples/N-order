@@ -1,0 +1,4 @@
+#!/bin/sh
+# make sure -N after other option is allowed
+./xmlstarlet sel -T -N n=n -t -v /n:x xml/foo.xml 2>&1 >/dev/null
+./xmlstarlet ed -P -N n=n -d /n:x xml/foo.xml 2>&1 >/dev/null

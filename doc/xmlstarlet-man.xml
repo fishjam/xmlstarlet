@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook"
+          xmlns:db="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          version="5.0">
+  <info>
+    <copyright><year>2012</year></copyright>
+
+    <author>
+      <personname>
+        <firstname>Mikhail</firstname>
+        <surname>Grushinskiy</surname>
+      </personname>
+      <contrib>XMLStarlet creator.</contrib>
+    </author>
+
+    <releaseinfo>Version <phrase role="VERSION"/></releaseinfo>
+  </info>
+
+  <refmeta>
+    <refentrytitle>xmlstarlet</refentrytitle>
+    <manvolnum>1</manvolnum>
+    <refmiscinfo class="manual">XMLStarlet Manual</refmiscinfo>
+  </refmeta>
+
+  <refnamediv>
+    <refname>xmlstarlet</refname>
+
+    <refpurpose>command line <acronym>XML/XSLT</acronym> toolkit</refpurpose>
+  </refnamediv>
+
+  <refsynopsisdiv>
+    <cmdsynopsis>
+      <command><phrase role="PROG"/></command>
+      <arg choice="opt" rep="repeat"><replaceable>options</replaceable></arg>
+      <arg choice="req"><replaceable>command</replaceable></arg>
+      <arg choice="opt" rep="repeat"><replaceable>cmd-options</replaceable></arg>
+    </cmdsynopsis>
+  </refsynopsisdiv>
+
+  <refsect1 xml:id="introduction">
+    <title>Introduction</title>
+
+    <para>XMLStarlet is a set of command line utilities (tools) which can be
+    used to transform, query, validate, and edit XML documents and files using
+    simple set of shell commands in similar way it is done for plain text
+    files using UNIX grep, sed, awk, diff, patch, join, etc commands. This set
+    of command line utilities can be used by those who deal with many XML
+    documents on UNIX shell command prompt as well as for automated XML
+    processing with shell scripts.</para>
+  </refsect1>
+
+  <refsect1 xml:id="options">
+    <title>Options</title>
+
+    <variablelist>
+      <varlistentry>
+        <term><option>--version</option></term>
+
+        <listitem>
+          <simpara>Display the version of
+          <application>xmlstarlet</application>.</simpara>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><option>--help</option></term>
+
+        <listitem>
+          <simpara>Display help.</simpara>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </refsect1>
+
+  <refsect1 xml:id="shell">
+    <title>Commands</title>
+
+    <para><command><phrase role="PROG"/></command>
+    <replaceable>command</replaceable> <option>--help</option>
+    for command specific help</para>
+
+    <para>Available commands include:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term><option>ed (or edit)</option></term>
+
+        <listitem>
+          <simpara>Edit/update XML document(s).</simpara>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><option>sel (or select)</option></term>
+
+        <listitem>
+          <simpara>Select data or query XML document(s) (XPATH,
+          etc).</simpara>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><option>tr (or transform)</option></term>
+
+        <listitem>
+          <simpara>Transform XML documents(s) using XSLT.</simpara>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><option>val (or validate)</option></term>
+
+        <listitem>
+          <simpara>Validate XML document(s)
+          (well-formed/DTD/XSD/RelaxNG).</simpara>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><option>fo (or format)</option></term>
+
+        <listitem>
+          <simpara>Format XML document(s).</simpara>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><option>el (or elements)</option></term>
+
+        <listitem>
+          <simpara>Display element structure of XML document.</simpara>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><option>c14n (or canonic)</option></term>
+
+        <listitem>
+          <simpara>XML canonicalization.</simpara>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><option>ls (or list)</option></term>
+
+        <listitem>
+          <simpara>List directory as XML.</simpara>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><option>esc (or escape)</option></term>
+
+        <listitem>
+          <simpara>Escape special XML characters.</simpara>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><option>unesc (or unescape)</option></term>
+
+        <listitem>
+          <simpara>Unescape special XML characters.</simpara>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><option>pyx (or xmln)</option></term>
+
+        <listitem>
+          <simpara>Convert XML into PYX format (based on ESIS - ISO
+          8879).</simpara>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><option>p2x (or depyx)</option></term>
+
+        <listitem>
+          <simpara>Convert PYX into XML.</simpara>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </refsect1>
+
+  <refsect1>
+    <title>References</title>
+
+    <para>XMLStarlet is a command line toolkit to query/edit/check/transform
+    XML documents (for more information see
+    http://xmlstar.sourceforge.net/).</para>
+  </refsect1>
+
+  <refsect1>
+    <title>Bugs</title>
+    <para> Report bugs to the mailing list,
+    <email>xmlstar-devel@lists.sourceforge.net</email> or the bug tracker: <link
+    xlink:href="http://sourceforge.net/tracker/?group_id=66612&amp;atid=515106"/>.
+    </para>
+  </refsect1>
+</refentry>
